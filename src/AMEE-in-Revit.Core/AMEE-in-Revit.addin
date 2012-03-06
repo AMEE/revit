@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Assembly>C:\Dev\AMEE\revit\src\AMEE-in-Revit.Core\bin\Debug\AMEE-in-Revit.Core.dll</Assembly>
+    <ClientId>44B7F7AE-4213-4F4E-9B63-281151B16615</ClientId>
+    <FullClassName>AMEE_in_Revit.Core.Command</FullClassName>
+    <Text>AMEE-in-Revit</Text>
+    <Description>Integrates AMEE climate data into Revit</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>AMEE</VendorId>
+    <VendorDescription>AMEE, www.amee.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
