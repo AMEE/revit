@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using AMEEClient.Model;
 using NUnit.Framework;
 
 namespace AMEEClient.Tests

@@ -20,8 +20,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{045BF9AE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMEE-in-Revit.Addin", "AMEE-in-Revit.Addin\AMEE-in-Revit.Addin.csproj", "{98B787E3-C92A-406E-A774-04CCCB5A9F97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMEEMaterials", "Examples\AMEEMaterials\AMEEMaterials.csproj", "{A66B8399-1626-4C8C-95FC-6E786FD2DCA0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,10 +38,6 @@ Global
 		{98B787E3-C92A-406E-A774-04CCCB5A9F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98B787E3-C92A-406E-A774-04CCCB5A9F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98B787E3-C92A-406E-A774-04CCCB5A9F97}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A66B8399-1626-4C8C-95FC-6E786FD2DCA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A66B8399-1626-4C8C-95FC-6E786FD2DCA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A66B8399-1626-4C8C-95FC-6E786FD2DCA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A66B8399-1626-4C8C-95FC-6E786FD2DCA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
