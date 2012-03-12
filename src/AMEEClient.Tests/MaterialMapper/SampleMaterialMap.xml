@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Materials>
+  <!--
+    1:Aluminum-6061
+    1:Aluminum-6061-AHC
+    1:Brass, Soft Yellow
+    1:Bronze, Soft Tin
+    1:Carbon Steel
+    1:Cast Bronze
+    1:Cast Copper
+    1:Cast Iron
+    1:Cast Steel
+  -->
+  <Material>
+    <MaterialName>1:Copper</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Copper</Drill>
+        <Drill name="type">EU Tube and Sheet</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+</Materials>

@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Copyright (C) 2011 AMEE UK Ltd. - http://www.amee.com
+  Released as Open Source Software under the BSD 3-Clause license. See LICENSE.txt for details.
+-->
+<Materials>
+  <!--
+    1:Aluminum-6061
+    1:Aluminum-6061-AHC
+    1:Brass, Soft Yellow
+    1:Bronze, Soft Tin
+    1:Carbon Steel
+    1:Cast Bronze
+    1:Cast Copper
+    1:Cast Iron
+    1:Cast Steel
+  -->
+  <Material>
+    <InternalName>1:Copper</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Copper</Drill>
+        <Drill name="type">EU Tube and Sheet</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <!--
+    1:Copper Alloy
+    1:Default
+    1:Ductile Iron
+    1:Galvanized Steel
+    1:GFRC (Glass Fiber Reinforced Concrete)
+    1:Glass
+    1:Gold
+    1:Gray Iron
+  -->
+  <Material>
+    <InternalName>1:High Density Polyethylene</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">High Density Polyethylene Resin</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <Material>
+    <InternalName>1:High Impact Polystyrene</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">Polystyrene</Drill>
+        <Drill name="subtype">High impact</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <!--
+    1:LCP Plastic
+  -->
+  <Material>
+    <InternalName>1:Lead</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Lead</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <Material>
+    <InternalName>1:Low Density Polyethylene</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">Low Density Polyethylene Resin</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <!--
+    1:Malleable Iron
+    1:Nickel-Copper Alloy 400
+    1:Non-Alloy Steel
+    1:Nylon-6/6
+    1:Nylon Composite (Nylon, molybdenum disulphide)
+    1:PBT Plastic
+    1:PC_ABS Plastic
+    1:PET Plastic
+    1:Phenolic
+    1:PMMA Plastic
+    1:Polyaryletherketone Resin
+    1:Polycarbonate, Clear
+    1:Polycarbonate, Smoke
+  -->
+  <Material>
+    <InternalName>1:Polypropylene</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">Polypropylene</Drill>
+        <Drill name="subtype">Injection Moulding</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <Material>
+    <InternalName>1:Polystyrene</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">Polystyrene</Drill>
+        <Drill name="subtype">General purpose</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <!--
+    1:Portland Cement Concrete
+    1:PPS Plastic
+    1:PVC-Piping
+    1:PVC-U
+    1:Rubber
+    1:SAN Plastic
+    1:Silicon Nitride
+    1:Silicone
+    1:Silver
+    1:Stainless Steel
+    1:Stainless Steel, 440C
+    1:Stainless Steel, Austenitic
+    1:Steel
+    1:Steel, High Strength Low Alloy
+    1:Steel, Mild
+    1:Thermoplastic Resin
+  -->
+  <Material>
+    <InternalName>1:Titanium</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Titanium</Drill>
+        <Drill name="type">Recycled</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <!--
+    1:UHMW, Black
+    1:UHMW, White
+    1:Welded Aluminum-6061
+    1:Welded Brass, Soft Yellow
+    1:Welded Stainless Steel, 440C
+    1:Welded Steel Mild
+  -->
+  <Material>
+    <InternalName>1:Wood (Birch)</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/timber</Path>
+      <Drills>
+        <Drill name="type">Sawn hardwood</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <Material>
+    <InternalName>1:Wood (Cherry)</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/timber</Path>
+      <Drills>
+        <Drill name="type">Sawn hardwood</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <Material>
+    <InternalName>1:Wood (Maple)</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/timber</Path>
+      <Drills>
+        <Drill name="type">Sawn hardwood</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <Material>
+    <InternalName>1:Wood (Oak)</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/timber</Path>
+      <Drills>
+        <Drill name="type">Sawn hardwood</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <Material>
+    <InternalName>1:Wood (Walnut)</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/timber</Path>
+      <Drills>
+        <Drill name="type">Sawn hardwood</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <!--
+    1:Wrought Copper
+  -->
+</Materials>

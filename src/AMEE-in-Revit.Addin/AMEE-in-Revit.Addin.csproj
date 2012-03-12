@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AMEE-in-Revit.addin" />
+    <Content Include="Revit2AMEEMaterialMap.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AMEEClient\AMEEClient.csproj">
