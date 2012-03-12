@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
+    <Compile Include="MaterialMapper\MaterialDataItem.cs" />
     <Compile Include="MaterialMapper\MaterialMapper.cs" />
     <Compile Include="MaterialMapper\UnknownMaterialException.cs" />
     <Compile Include="Model\Amount.cs" />

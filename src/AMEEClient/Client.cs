@@ -55,6 +55,22 @@ namespace AMEEClient
 
             return Request<DrillDownResponse>("data", uriTemplate, "GET", parameters, TimeSpan.FromMilliseconds(0), "default");
         }
+        public DrillDownResponse GetDrillDown(string path, List<List<string>> drillDowns)
+        {
+            string drillString = "";
+            foreach (List<string> x in drillDowns)
+            {
+                if (drillString.Length != 0)
+                    drillString += '&';
+                drillString += HttpUtility.UrlEncode(x[0]);
+                drillString += '=';
+                drillString += HttpUtility.UrlEncode(x[1]);
+            }
+            string uriTemplate = "/" + path.Trim(' ', '/') + "/drill?" + drillString;
+
+            return Request<DrillDownResponse>("data", uriTemplate, "GET", null, TimeSpan.FromMilliseconds(0), "default");
+        }
+
         /// <summary>
         /// Turns out you can perform calculations just by appending some querystring parameters to the
         /// "GetDataItem" uri.  Calculation results are in then in the Amounts array

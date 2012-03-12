@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Xml;
-using AMEEClient.Model;
-using Newtonsoft.Json;
 
 namespace AMEEClient.MaterialMapper
 {
     public class MaterialMapper
     {
         private readonly string _mapFilePath;
-        private Dictionary<string, DataItem> _materialMap;
+        private readonly Client _ameeClient;
+        private Dictionary<string, MaterialDataItem> _materialMap;
 
-        public MaterialMapper(string mapFilePath)
+        public MaterialMapper(string mapFilePath, Client ameeClient)
         {
             _mapFilePath = mapFilePath;
+            _ameeClient = ameeClient;
         }
 
-        public DataItem GetItemForMaterial(string materialName)
+        public MaterialDataItem GetMaterialDataItem(string materialName)
         {
             EnsureMaterialMapLoaded();
             if (!_materialMap.ContainsKey(materialName))
@@ -27,11 +26,13 @@ namespace AMEEClient.MaterialMapper
             return _materialMap[materialName];
         }
 
+     
+
         private void EnsureMaterialMapLoaded()
         {
             if (_materialMap == null)
             {
-                _materialMap = new Dictionary<string, DataItem>();
+                _materialMap = new Dictionary<string, MaterialDataItem>();
                 
                 var doc = new XmlDocument();
                 var reader = new XmlTextReader(_mapFilePath);
@@ -40,13 +41,15 @@ namespace AMEEClient.MaterialMapper
                 foreach (XmlNode material in materials)
                 {
                     var materialName = material.SelectNodes("MaterialName").Item(0).InnerText;
-                    var item = new DataItem(); //material.SelectNodes("AMEE/Path").Item(0).InnerText
-                    XmlNodeList drills = material.SelectNodes("AMEE/Drills/Drill");
+                    var materialDrillDown = new List<List<string>>();
+                    var drills = material.SelectNodes("AMEE/Drills/Drill");
                     foreach (XmlNode drill in drills)
                     {
-                        // item.AddDrill(drill.Attributes["name"].Value, drill.InnerText);
+                        materialDrillDown.Add(new List<string> {drill.Attributes["name"].Value, drill.InnerText});
                     }
-                    _materialMap.Add(materialName, item);
+                    var materialDataItem = new MaterialDataItem(_ameeClient, materialName, material.SelectNodes("AMEE/Path").Item(0).InnerText, materialDrillDown);
+
+                    _materialMap.Add(materialName, materialDataItem);
                 }
                    
             }

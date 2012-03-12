@@ -8,9 +8,9 @@ namespace AMEEClient.Tests
     [TestFixture]
     public class DefraFixture
     {
-        private const string AmeeUrl = "https://stage.amee.com";
-        private const string AmeeUserName = "jsonclient";
-        private const string AmeePassword = "bktnkaq4";
+        public const string AmeeUrl = "https://stage.amee.com";
+        public const string AmeeUserName = "AMEE_in_Revit";
+        public const string AmeePassword = "ghmuasqx";
 
         [Test]
         public void CanGrabValue()
