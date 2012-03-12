@@ -1,7 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMEE-in-Revit.Core", "AMEE-in-Revit.Core\AMEE-in-Revit.Core.csproj", "{98B787E3-C92A-406E-A774-04CCCB5A9F97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMEEClient", "AMEEClient\AMEEClient.csproj", "{DDE9EA16-2CFC-466B-A79B-B1416DBED5F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMEEClient.Tests", "AMEEClient.Tests\AMEEClient.Tests.csproj", "{16381646-941A-43F7-8AB6-AAD022616136}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{67ABD5F2-F2DF-4AA9-A1EE-C7BBFECF09D2}"
+	ProjectSection(SolutionItems) = preProject
+		..\CHANGELOG.txt = ..\CHANGELOG.txt
+		..\LICENSE.txt = ..\LICENSE.txt
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{045BF9AE-ED7A-4C20-908B-E867105F396C}"
+	ProjectSection(SolutionItems) = preProject
+		..\build-and-install.cmd = ..\build-and-install.cmd
+		..\build.xml = ..\build.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMEE-in-Revit.Addin", "AMEE-in-Revit.Addin\AMEE-in-Revit.Addin.csproj", "{98B787E3-C92A-406E-A774-04CCCB5A9F97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,6 +26,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDE9EA16-2CFC-466B-A79B-B1416DBED5F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDE9EA16-2CFC-466B-A79B-B1416DBED5F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDE9EA16-2CFC-466B-A79B-B1416DBED5F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDE9EA16-2CFC-466B-A79B-B1416DBED5F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16381646-941A-43F7-8AB6-AAD022616136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16381646-941A-43F7-8AB6-AAD022616136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16381646-941A-43F7-8AB6-AAD022616136}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16381646-941A-43F7-8AB6-AAD022616136}.Release|Any CPU.Build.0 = Release|Any CPU
 		{98B787E3-C92A-406E-A774-04CCCB5A9F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{98B787E3-C92A-406E-A774-04CCCB5A9F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98B787E3-C92A-406E-A774-04CCCB5A9F97}.Release|Any CPU.ActiveCfg = Release|Any CPU

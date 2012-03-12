@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="DoItAll" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+  <PropertyGroup>
+    <MSBuildCommunityTasksPath>$(MSBuildProjectDirectory)\tools\msbuild\MSBuildCommunityTasks\</MSBuildCommunityTasksPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.Targets"/>
+
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Any CPU</Platform>
+    <MajorVersion>1</MajorVersion>
+    <MinorVersion>0</MinorVersion>
+    <!-- This gets set by the build server -->
+    <BuildVersion>0</BuildVersion>
+    <FullVersion>$(MajorVersion).$(MinorVersion).$(BuildVersion)</FullVersion>
+  </PropertyGroup>
+
+  <Target Name="UpdateVersion" >
+    <Message Text="Updating version to $(FullVersion)" />
+    <!-- Update assembly version number using build number -->
+    <FileUpdate
+        Files="$(MSBuildProjectDirectory)\src\AMEE-in-Revit.Addin\Properties\AssemblyInfo.cs"
+        Regex="AssemblyVersion\(&quot;.*&quot;\)"
+        ReplacementText="AssemblyVersion(&quot;$(FullVersion)&quot;)" />
+  </Target>
+
+  <Target Name="Build" DependsOnTargets="UpdateVersion" >
+    <MSBuild Projects="$(MSBuildProjectDirectory)\src\AMEE-in-Revit.sln" Targets="Rebuild"
+      Properties="Configuration=$(Configuration)" />
+  </Target>
+
+  <Target Name="DoItAll" DependsOnTargets="Build" >
+  </Target>
+
+</Project>

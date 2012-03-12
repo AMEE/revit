@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Autodesk.Revit;
-using Autodesk.Revit.UI;
+﻿using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.ApplicationServices;
 
-namespace AMEE_in_Revit.Core
+namespace AMEE_in_Revit.Addin
 {
     /// <summary>
     /// Demonstrate how a basic ExternalCommand can be added to the Revit user interface. 
