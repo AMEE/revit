@@ -9,4 +9,13 @@
     <VendorId>AMEE</VendorId>
     <VendorDescription>AMEE, www.amee.com</VendorDescription>
   </AddIn>
+  <AddIn Type="Application">
+    <Assembly>C:\Dev\AMEE\revit\src\AMEE-in-Revit.Addin\bin\Debug\AMEE-in-Revit.Addin.dll</Assembly>
+    <ClientId>FDA871B6-5DEA-4CFF-A35D-C1E1E742D981</ClientId>
+    <FullClassName>AMEE_in_Revit.Addin.AMEEVisualization</FullClassName>
+    <Text>DistanceToSurfaces</Text>
+    <Name>Display distance between sphere and surfaces</Name>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
 </RevitAddIns>

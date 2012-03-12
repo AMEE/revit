@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AMEEPanel.cs" />
+    <Compile Include="AMEEVisualization.cs" />
     <Compile Include="LaunchAMEEConnectCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
