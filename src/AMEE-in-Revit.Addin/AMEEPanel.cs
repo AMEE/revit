@@ -19,7 +19,7 @@ namespace AMEE_in_Revit.Addin
         {
             try
             {
-                var panel = application.CreateRibbonPanel("AMEE");
+                var panel = application.CreateRibbonPanel(Tab.Analyze, "AMEE");
                 AddAMEEConnectButton(panel);
                 panel.AddSeparator();
 
