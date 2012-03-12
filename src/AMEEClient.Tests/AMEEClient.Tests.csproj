@@ -31,6 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CityIndex.JsonClient">
+      <HintPath>..\packages\!CityIndex.JsonClient\lib\net40\CityIndex.JsonClient.dll</HintPath>
+    </Reference>
+    <Reference Include="CityIndex.ReflectiveLoggingAdapter">
+      <HintPath>..\packages\!CityIndex.JsonClient\lib\net40\CityIndex.ReflectiveLoggingAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\!CityIndex.JsonClient\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -43,7 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DefraFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

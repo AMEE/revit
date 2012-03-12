@@ -1,0 +1,1032 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CityIndex.JsonClient.Phone7</name>
+    </assembly>
+    <members>
+        <member name="T:CityIndex.JsonClient.CacheItemState">
+            <summary>
+            Describes the state of a <see cref="T:CityIndex.JsonClient.CacheItemBase"/>
+            </summary>
+        </member>
+        <member name="F:CityIndex.JsonClient.CacheItemState.New">
+            <summary>
+            The item was created and inserted by the cache and is ready to be
+            populated
+            </summary>
+        </member>
+        <member name="F:CityIndex.JsonClient.CacheItemState.Pending">
+            <summary>
+            The item's request has been issued and is waiting for completion. While
+            in this state, additional callbacks may be added for identical requests
+            enabling a single request to service multiple calls.
+            </summary>
+        </member>
+        <member name="F:CityIndex.JsonClient.CacheItemState.Processing">
+            <summary>
+            The item's request has completed, or errored out, and the item's callbacks
+            are currently being executed. The item and the cache should be locked and blocking
+            while an item is in this state.
+            </summary>
+        </member>
+        <member name="F:CityIndex.JsonClient.CacheItemState.Complete">
+            <summary>
+            The item's request has completed, or errored out, and the item
+            contains the request's response text, if any, and any exception thrown.
+            
+            Expiration date is computed at this transition.
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.RequestCache">
+            <summary>
+            A thread-safe, self purging cache of <see cref="T:CityIndex.JsonClient.CacheItem`1"/>
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.IRequestCache">
+            <summary>
+            A thread-safe, self purging cache of <see cref="T:CityIndex.JsonClient.CacheItem`1"/>
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.IRequestCache.PurgeExpiredItems(System.Object)">
+            <summary>
+             Removes expired items from cache.
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.IRequestCache.GetOrCreate``1(System.String)">
+            <summary>
+            Gets or creates a <see cref="T:CityIndex.JsonClient.CacheItem`1"/> for supplied url (case insensitive).
+            If a matching <see cref="T:CityIndex.JsonClient.CacheItem`1"/> is found but has expired, it is replaced with a new <see cref="T:CityIndex.JsonClient.CacheItem`1"/>.
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CityIndex.JsonClient.IRequestCache.Get``1(System.String)">
+            <summary>
+            Returns a <see cref="T:CityIndex.JsonClient.CacheItem`1"/> keyed by url (case insensitive)
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="url"></param>
+            <returns></returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">If url is not found in internal map</exception>
+        </member>
+        <member name="M:CityIndex.JsonClient.IRequestCache.Remove``1(System.String)">
+            <summary>
+            Removes a <see cref="T:CityIndex.JsonClient.CacheItem`1"/> from the internal map
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="url"></param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException">
+            If item is not completed, removing would result in orphaned callbacks effectively stalling the calling code.
+            </exception>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestCache.#ctor(System.TimeSpan)">
+            <summary>
+            Instantiates a <see cref="T:CityIndex.JsonClient.RequestCache"/> with supplied <paramref name="defaultCacheDuration"/>
+            </summary>
+            <param name="defaultCacheDuration">The default cache lifespan to apply to <see cref="T:CityIndex.JsonClient.CacheItem`1"/></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestCache.GetOrCreate``1(System.String)">
+            <summary>
+            Gets or creates a <see cref="T:CityIndex.JsonClient.CacheItem`1"/> for supplied url (case insensitive).
+            If a matching <see cref="T:CityIndex.JsonClient.CacheItem`1"/> is found but has expired, it is replaced with a new <see cref="T:CityIndex.JsonClient.CacheItem`1"/>.
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestCache.Get``1(System.String)">
+            <summary>
+            Returns a <see cref="T:CityIndex.JsonClient.CacheItem`1"/> keyed by url (case insensitive)
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="url"></param>
+            <returns></returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">If url is not found in internal map</exception>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestCache.Remove``1(System.String)">
+            <summary>
+            Removes a <see cref="T:CityIndex.JsonClient.CacheItem`1"/> from the internal map
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="url"></param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException">
+            If item is not completed, removing would result in orphaned callbacks effectively stalling the calling code.
+            </exception>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestCache.PurgeExpiredItems(System.Object)">
+            <summary>
+            Is called on the purge timer to remove completed and expired <see cref="T:CityIndex.JsonClient.CacheItem`1"/> from the internal map.
+            </summary>
+            <param name="ignored"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestCache.CreateAndAddItem``1(System.String)">
+            <summary>
+            Creates and returns an empty <see cref="T:CityIndex.JsonClient.CacheItem`1"/> with default values and adds it to the internal map
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestCache.GetItem``1(System.String)">
+            <summary>
+            Fetches a <see cref="T:CityIndex.JsonClient.CacheItem`1"/> from internal map and blocks if 
+            the <see cref="T:CityIndex.JsonClient.CacheItem`1"/> callbacks are being processed
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestCache.CacheItemProcessingComplete(System.Object,System.EventArgs)">
+            <summary>
+            Signals processing complete on a <see cref="T:CityIndex.JsonClient.CacheItem`1"/> and cleans up the handler delegate
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestCache.EnsureItemCurrency(System.String)">
+            <summary>
+            Finds a <see cref="T:CityIndex.JsonClient.CacheItem`1"/> keyed by url (case insensitive), if found, is completed and expired, removes the item.
+            </summary>
+            <param name="url"></param>
+        </member>
+        <member name="T:CityIndex.JsonClient.CacheCallBack`1">
+            <summary>
+            A simple composition for collection storage
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheCallBack`1.Callback">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheCallBack`1.State">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.ThrottledRequestQueue">
+            <summary>
+            
+            A self throttling asynchronous request queue.
+            
+            TODO: allow for pausing
+            would like to allow for clearing the queue but dependencies on the cache make
+            this a non starter. the only viable ways to that means is to merge throttle and cache.
+            this will have to be a builder type action in the calling class that can corelate the
+            queue items and the cache items and resolve the cache items that are cleared.
+            this will probably mean the introduction of a 'cancelled' CacheItemState
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.IThrottledRequestQueue">
+            <summary>
+             Describes a self throttling asynchronous request queue.
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.IThrottledRequestQueue.ProcessQueue(System.Object)">
+            <summary>
+            </summary>
+            <param name="ignored"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.IThrottledRequestQueue.Enqueue(System.String,System.Net.WebRequest,System.Action{System.IAsyncResult,CityIndex.JsonClient.RequestHolder})">
+            <summary>
+            Adds a request to the end of the queue.
+            </summary>
+            <param name="url"></param>
+            <param name="request"></param>
+            <param name="action"></param>
+        </member>
+        <member name="P:CityIndex.JsonClient.IThrottledRequestQueue.Scope">
+            <summary>
+             The name/key of this throttle
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.IThrottledRequestQueue.DispatchedCount">
+            <summary>
+            The number of requests that have been dispatched
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.IThrottledRequestQueue.MaxPendingRequests">
+            <summary>
+            The maximum number of allowed pending request.
+            
+            The throttle window will keep us in compliance with the 
+            letter of the law, but testing has shown that a large 
+            number of outstanding requests result in a cascade of 
+            (500) errors that does not stop. 
+            
+            So we will defer processing while there are > MaxPendingRequests 
+            regardless of throttle window.
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.IThrottledRequestQueue.PendingRequests">
+            <summary>
+            The number of pending (issued) requests
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.IThrottledRequestQueue.ThrottleWindowCount">
+            <summary>
+            The quantitive portion (xxx) of the of 30 requests per 5 seconds
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.IThrottledRequestQueue.ThrottleWindowTime">
+            <summary>
+            The temporal portion (yyy) of the of 30 requests per 5 seconds
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.ThrottledRequestQueue.#ctor">
+            <summary>
+            Insantiates a <see cref="T:CityIndex.JsonClient.ThrottledRequestQueue"/> with default parameters.
+            throttleWindowTime = 5 seconds
+            throttleWindowCount = 30
+            maxPendingRequests = 10
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.ThrottledRequestQueue.#ctor(System.TimeSpan,System.Int32,System.Int32,System.String)">
+            <summary>
+            Insantiates a <see cref="T:CityIndex.JsonClient.ThrottledRequestQueue"/> with supplied parameters.
+            </summary>
+            <param name="throttleWindowTime">The window in which to restrice issued requests to <paramref name="throttleWindowCount"/></param>
+            <param name="throttleWindowCount">The maximum number of requests to issue in the amount of time described by <paramref name="throttleWindowTime"/></param>
+            <param name="maxPendingRequests">The maximum allowed number of active requests.</param>
+            <param name="scope"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.ThrottledRequestQueue.Enqueue(System.String,System.Net.WebRequest,System.Action{System.IAsyncResult,CityIndex.JsonClient.RequestHolder})">
+            <summary>
+            Adds a request to the end of the queue.
+            </summary>
+            <param name="url"></param>
+            <param name="request"></param>
+            <param name="action"></param>
+        </member>
+        <member name="P:CityIndex.JsonClient.ThrottledRequestQueue.DispatchedCount">
+            <summary>
+            The number of requests that have been dispatched
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.ThrottledRequestQueue.MaxPendingRequests">
+            <summary>
+            The maximum number of allowed pending request.
+            
+            The throttle window will keep us in compliance with the 
+            letter of the law, but testing has shown that a large 
+            number of outstanding requests result in a cascade of 
+            (500) errors that does not stop. 
+            
+            So we will defer processing while there are > MaxPendingRequests 
+            regardless of throttle window.
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.ThrottledRequestQueue.PendingRequests">
+            <summary>
+            The number of pending (issued) requests
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.ThrottledRequestQueue.ThrottleWindowCount">
+            <summary>
+            The quantitive portion (xxx) of the of 30 requests per 5 seconds
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.ThrottledRequestQueue.ThrottleWindowTime">
+            <summary>
+            The temporal portion (yyy) of the of 30 requests per 5 seconds
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.ApiException">
+            <summary>
+            An exception class that will retrieve the response text of the inner exception if it is a WebException
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.ApiException.#ctor(System.String)">
+            <summary>
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.ApiException.#ctor(System.String,System.Exception)">
+            <summary>
+            </summary>
+            <param name="message"></param>
+            <param name="inner"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.ApiException.Create(System.Exception)">
+            <summary>
+            </summary>
+            <param name="inner"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CityIndex.JsonClient.ApiException.ResponseText">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.ApiTimeoutException">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.ApiSerializationException">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.ApiSerializationException.#ctor(System.String,System.String)">
+            <summary>
+            </summary>
+            <param name="message"></param>
+            <param name="responseText"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.ApiSerializationException.#ctor(System.String,System.String,System.Exception)">
+            <summary>
+            </summary>
+            <param name="message"></param>
+            <param name="responseText"></param>
+            <param name="inner"></param>
+        </member>
+        <member name="T:CityIndex.JsonClient.ResponseHandlerException">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.RequestNotificationStatus">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:CityIndex.JsonClient.RequestNotificationStatus.Continue">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:CityIndex.JsonClient.RequestNotificationStatus.Pending">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:CityIndex.JsonClient.RequestNotificationStatus.FinishRequest">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.RequestFactory">
+            <summary>
+            Default RequestFactory. Returns instances of <see cref="T:System.Net.WebRequest"/>.
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.IRequestFactory">
+            <summary>
+            Abstract interface for WebRequest factory
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.IRequestFactory.Create(System.String)">
+            <summary>
+             Returns a <see cref="T:System.Net.WebRequest"/> for <paramref name="uri"/>
+            </summary>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CityIndex.JsonClient.IRequestFactory.RequestTimeout">
+            <summary>
+            The amount of time to wait for a response before throwing an exception
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestFactory.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestFactory.Create(System.String)">
+            <summary>
+             Returns instances of <see cref="T:System.Net.WebRequest"/>.
+            </summary>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CityIndex.JsonClient.RequestFactory.RequestTimeout">
+            <summary>
+            The amount of time to wait for a response before throwing an exception.
+            Defaults to 30 seconds
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.IRequestController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.IRequestController.ProcessCacheItem``1(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.TimeSpan,System.String,System.String,CityIndex.JsonClient.ApiAsyncCallback{``0},System.Object)">
+            <summary>
+            </summary>
+            <param name="target"></param>
+            <param name="uriTemplate"></param>
+            <param name="method"></param>
+            <param name="parameters"></param>
+            <param name="cacheDuration"></param>
+            <param name="throttleScope"></param>
+            <param name="url"></param>
+            <param name="cb"></param>
+            <param name="state"></param>
+            <typeparam name="TDTO"></typeparam>
+        </member>
+        <member name="M:CityIndex.JsonClient.IRequestController.CreateRequest``1(System.String)">
+            <summary>
+            </summary>
+            <param name="url"></param>
+            <typeparam name="TDTO"></typeparam>
+        </member>
+        <member name="P:CityIndex.JsonClient.IRequestController.ContentType">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.IRequestController.BasicHttpAuthUsername">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.IRequestController.BasicHttpAuthPassword">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.IRequestController.UserAgent">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.IRequestController.Cache">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.IRequestController.Item(System.String)">
+            <summary>
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="P:CityIndex.JsonClient.IRequestController.RetryCount">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.IRequestController.RequestFactory">
+            <summary>
+            </summary>
+        </member>
+        <member name="E:CityIndex.JsonClient.IRequestController.BeforeBuildUrl">
+            <summary>
+            </summary>
+        </member>
+        <member name="E:CityIndex.JsonClient.IRequestController.BeforeIssueRequest">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.Converters.UnixDateTimeConverter">
+            <summary>
+              Useful when serializing/deserializing json for use with the Stack Overflow API, which produces and consumes Unix Timestamp dates
+            </summary>
+            <remarks>
+              swiped from lfoust and fixed for latest json.net with some tweaks for handling out-of-range dates
+            </remarks>
+        </member>
+        <member name="M:CityIndex.JsonClient.Converters.UnixDateTimeConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter"/> to write to.</param><param name="value">The value.</param><param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="M:CityIndex.JsonClient.Converters.UnixDateTimeConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+              Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader"/> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>The object value.</returns>
+        </member>
+        <member name="T:CityIndex.JsonClient.Converters.UnixDateTimeOffsetConverter">
+            <summary>
+              Useful when serializing/deserializing json for use with the Stack Overflow API, which produces and consumes Unix Timestamp dates
+            </summary>
+            <remarks>
+              swiped from lfoust and fixed for latest json.net with some tweaks for handling out-of-range dates
+            </remarks>
+        </member>
+        <member name="M:CityIndex.JsonClient.Converters.UnixDateTimeOffsetConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter"/> to write to.</param><param name="value">The value.</param><param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="M:CityIndex.JsonClient.Converters.UnixDateTimeOffsetConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+              Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader"/> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <exception cref="T:System.Exception"></exception>
+            <returns>The object value.</returns>
+        </member>
+        <member name="T:CityIndex.JsonClient.RequestController">
+            <summary>
+             Default throttle scope manager implementation
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestController.#ctor(System.TimeSpan,System.Int32,CityIndex.JsonClient.IRequestFactory,CityIndex.JsonClient.IJsonExceptionFactory,CityIndex.JsonClient.IThrottledRequestQueue[])">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestController.ProcessCacheItem``1(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.TimeSpan,System.String,System.String,CityIndex.JsonClient.ApiAsyncCallback{``0},System.Object)">
+            <param name="cb"></param>
+            <param name="state"></param>
+            <typeparam name="TDTO"></typeparam>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestController.SetPostEntityAndEnqueueRequest``1(System.String)">
+            <summary>
+            Builds a JSOB from parameters and asynchronously feeds the request stream with the resultant JSON before sending the request
+            </summary>
+            <param name="url"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestController.CreatePostEntity(System.Object)">
+            <summary>
+            Serializes post entity
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CityIndex.JsonClient.RequestController.EnqueueRequest``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+        </member>
+        <member name="P:CityIndex.JsonClient.RequestController.ContentType">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.RequestController.Compression">
+            <summary>
+            </summary>
+        </member>
+        <member name="E:CityIndex.JsonClient.RequestController.BeforeIssueRequest">
+            <summary>
+            </summary>
+        </member>
+        <member name="E:CityIndex.JsonClient.RequestController.BeforeBuildUrl">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.Client">
+            <summary>
+            Provides a simple, yet fully functional, strongly typed json request dispatch replete with caching and throttling capabilities.
+            Typically this class is used as a base for specialized derivations.
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.IJsonClient">
+            <summary>
+             Describes a general purpose HTTP JSON API client
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.IJsonClient.Request``1(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.TimeSpan,System.String)">
+            <summary>
+            Very simple synchronous wrapper of the begin/end methods.
+            I have chosen not to simply use the synchronous .GetResponse() method of WebRequest to prevent evolution
+            of code that will not port to silverlight. While it is against everything righteous and holy in the silverlight crowd
+            to implement syncronous patterns, no matter how cleverly, there is just too much that can be done with a sync fetch, i.e. multi page, eager fetches, etc,
+            to ignore it. We simply forbid usage on the UI thread with an exception. Simple.
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="target"></param>
+            <param name="uriTemplate"></param>
+            <param name="method"></param>
+            <param name="parameters"></param>
+            <param name="cacheDuration"></param>
+            <param name="throttleScope"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CityIndex.JsonClient.IJsonClient.BeginRequest``1(CityIndex.JsonClient.ApiAsyncCallback{``0},System.Object,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.TimeSpan,System.String)">
+            <summary>
+            Standard async Begin implementation.
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="cb"></param>
+            <param name="state"></param>
+            <param name="target"></param>
+            <param name="uriTemplate"></param>
+            <param name="method"></param>
+            <param name="parameters"></param>
+            <param name="cacheDuration"></param>
+            <param name="throttleScope"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.IJsonClient.EndRequest``1(CityIndex.JsonClient.ApiAsyncResult{``0})">
+            <summary>
+            Standard async end implementation. Calling code passes in the ApiAsyncResult that is returned to the callback
+            and the response data is returned. If an exception occurred during execution of the request, it will now be
+            rethrown.
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="asyncResult"></param>
+            <returns></returns>
+            <exception cref="T:CityIndex.JsonClient.ApiException">the exception, if any, that occurred during execution of the request</exception>
+        </member>
+        <member name="P:CityIndex.JsonClient.IJsonClient.RequestController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.Client.#ctor(System.Uri,CityIndex.JsonClient.IRequestController,System.String,System.String)">
+            <summary>
+            </summary>
+            <param name="uri"></param>
+            <param name="requestController"></param>
+            <param name="basicAuthUsername"></param>
+            <param name="basicAuthPassword"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.Client.#ctor(System.Uri,CityIndex.JsonClient.IRequestController)">
+            <summary>
+            </summary>
+            <param name="uri"></param>
+            <param name="requestController"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.Client.#ctor(System.Uri,System.String,System.String)">
+            <summary>
+            </summary>
+            <param name="uri"></param>
+            <param name="basicAuthUsername"></param>
+            <param name="basicAuthPassword"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.Client.#ctor(System.Uri)">
+            <summary>
+            </summary>
+            <param name="uri"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.Client.BeforeIssueRequest(System.Net.WebRequest,System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.TimeSpan,System.String)">
+            <summary>
+            Provides an interaction point after the request has been created but just before it is queued up
+            for execution.
+            Derived classes may take this opportunity to modify the <paramref name="request"/>, <paramref name="cacheDuration"/> or the <paramref name="throttleScope"/>.
+            The remaining parameters are for reference only and modification will have no effect on the execution of the request.
+            
+            TODO: perhaps a container object for the read-only reference values to avoid any confusion?
+                  it could be argued that you can read the url of the request but having the components used to create
+                  the url could make life a lot easier. ?
+            </summary>
+            <param name="request"></param>
+            <param name="url"></param>
+            <param name="target"></param>
+            <param name="uriTemplate"></param>
+            <param name="method"></param>
+            <param name="parameters"></param>
+            <param name="cacheDuration"></param>
+            <param name="throttleScope"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.Client.BeforeBuildUrl(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.TimeSpan,System.String)">
+            <summary>
+            Provides a interaction point just before the url for the request is built. Derived
+            classes may take this opportunity to examine and modify the components used to 
+            build the url for the request.
+            </summary>
+            <param name="target"></param>
+            <param name="uriTemplate"></param>
+            <param name="method"></param>
+            <param name="parameters"></param>
+            <param name="cacheDuration"></param>
+            <param name="throttleScope"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.Client.Request``1(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.TimeSpan,System.String)">
+            <summary>
+            Very simple synchronous wrapper of the begin/end methods.
+            I have chosen not to simply use the synchronous .GetResponse() method of WebRequest to prevent evolution
+            of code that will not port to silverlight. While it is against everything righteous and holy in the silverlight crowd
+            to implement syncronous patterns, no matter how cleverly, there is just too much that can be done with a sync fetch, i.e. multi page, eager fetches, etc,
+            to ignore it. We simply forbid usage on the UI thread with an exception. Simple.
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="target"></param>
+            <param name="uriTemplate"></param>
+            <param name="method"></param>
+            <param name="parameters"></param>
+            <param name="cacheDuration"></param>
+            <param name="throttleScope"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CityIndex.JsonClient.Client.Request``1(System.String,System.String)">
+            <summary>
+             Very simple synchronous wrapper of the begin/end methods.
+            </summary>
+            <param name="target"></param>
+            <param name="method"></param>
+            <typeparam name="TDTO"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CityIndex.JsonClient.Client.Request``1(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            </summary>
+            <param name="target"></param>
+            <param name="uriTemplate"></param>
+            <param name="method"></param>
+            <param name="parameters"></param>
+            <typeparam name="TDTO"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CityIndex.JsonClient.Client.BeginRequest``1(CityIndex.JsonClient.ApiAsyncCallback{``0},System.Object,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.TimeSpan,System.String)">
+            <summary>
+            Standard async Begin implementation.
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="cb"></param>
+            <param name="state"></param>
+            <param name="target"></param>
+            <param name="uriTemplate"></param>
+            <param name="method"></param>
+            <param name="parameters"></param>
+            <param name="cacheDuration"></param>
+            <param name="throttleScope"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.Client.BeginRequest``1(CityIndex.JsonClient.ApiAsyncCallback{``0},System.Object,System.String,System.String)">
+            <summary>
+            </summary>
+            <param name="cb"></param>
+            <param name="state"></param>
+            <param name="target"></param>
+            <param name="method"></param>
+            <typeparam name="TDTO"></typeparam>
+        </member>
+        <member name="M:CityIndex.JsonClient.Client.BeginRequest``1(CityIndex.JsonClient.ApiAsyncCallback{``0},System.Object,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            </summary>
+            <param name="cb"></param>
+            <param name="state"></param>
+            <param name="target"></param>
+            <param name="uriTemplate"></param>
+            <param name="method"></param>
+            <param name="parameters"></param>
+            <typeparam name="TDTO"></typeparam>
+        </member>
+        <member name="M:CityIndex.JsonClient.Client.EndRequest``1(CityIndex.JsonClient.ApiAsyncResult{``0})">
+            <summary>
+            Standard async end implementation. Calling code passes in the ApiAsyncResult that is returned to the callback
+            and the response data is returned. If an exception occurred during execution of the request, it will now be
+            rethrown.
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="asyncResult"></param>
+            <returns></returns>
+            <exception cref="T:CityIndex.JsonClient.ApiException">the exception, if any, that occurred during execution of the request</exception>
+        </member>
+        <member name="M:CityIndex.JsonClient.Client.ApplyUriTemplateParameters(System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
+            <summary>
+            Replaces templates with parameter values, if present, and cleans up missing templates.
+            </summary>
+            <param name="parameters"></param>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CityIndex.JsonClient.Client.BuildUrl(System.String,System.String,System.String)">
+            <summary>
+            Composes the url for a request from components
+            </summary>
+            <param name="target"></param>
+            <param name="uriTemplate"></param>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CityIndex.JsonClient.Client.UserAgent">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.CacheItem`1">
+            <summary>
+            Provides a generic composition element for request state.
+            Contains a callback queue to service identical concurrent requests. 
+            i.e. if, while a request is in process, an identical request is made,
+            the caller may simply add the callback to this item and let the single
+            request service both.
+            </summary>
+            <typeparam name="TDTO">The expected DTO type</typeparam>
+        </member>
+        <member name="T:CityIndex.JsonClient.CacheItemBase">
+            <summary>
+            Provides a base composition element for <see cref="T:CityIndex.JsonClient.CacheItem`1"/> to simplify program logic.
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.CacheItemBase.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.CacheItemBase.OnProcessingComplete">
+            <summary>
+            Signals that processing of queued callbacks is complete.
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheItemBase.Url">
+            <summary>
+             The url of this request
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheItemBase.Parameters">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheItemBase.Method">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheItemBase.ThrottleScope">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheItemBase.Target">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheItemBase.UriTemplate">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheItemBase.Request">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheItemBase.ResponseText">
+            <summary>
+            The result of this item's request, if any
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheItemBase.Expiration">
+            <summary>
+            The absolute time which this item should be expired and purged
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheItemBase.CacheDuration">
+            <summary>
+            The length of time to cache this item
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheItemBase.ItemState">
+            <summary>
+            The state of this cache item.
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheItemBase.Exception">
+            <summary>
+            The exception, if any, that occurred while processing the request for this item.
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheItemBase.ProcessingWaitHandle">
+            <summary>
+            A wait handle that enables blocking while this item's callbacks are being processed.
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheItemBase.RetryCount">
+            <summary>
+            Indicates how many times the request for this item has been attempted
+            </summary>
+        </member>
+        <member name="E:CityIndex.JsonClient.CacheItemBase.ProcessingComplete">
+            <summary>
+            Signals that processing of queued callbacks is complete.
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.CacheItem`1.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.CacheItem`1.AddCallback(CityIndex.JsonClient.ApiAsyncCallback{`0},System.Object)">
+            <summary>
+            Adds an <see cref="T:CityIndex.JsonClient.ApiAsyncCallback`1"/> to be serviced when this item's 
+            request completes.
+            </summary>
+            <param name="callback"></param>
+            <param name="state"></param>
+        </member>
+        <member name="M:CityIndex.JsonClient.CacheItem`1.CompleteResponse(System.String,System.Exception)">
+            <summary>
+            Executes and dequeues each queued <see cref="T:CityIndex.JsonClient.ApiAsyncCallback`1"/> in order and then signals completion.
+            </summary>
+            <param name="json"></param>
+            <param name="exception"></param>
+        </member>
+        <member name="T:CityIndex.JsonClient.ApiAsyncCallback`1">
+            <summary>
+            Delegate used to complete async calls.
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="asyncResult"></param>
+        </member>
+        <member name="T:CityIndex.JsonClient.RequestRetryDiscriminator">
+            <summary>
+            allow for retries on select exception types
+            e.g. 50* server errors, timeouts and transport errors
+            DO NOT RETRY THROTTLE, AUTHENTICATION OR ARGUMENT EXCEPTIONS ETC
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.RequestHolder">
+            <summary>
+            Composition element for request related fields.
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.RequestHolder.Url">
+            <summary>
+            The url of the request
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.RequestHolder.WebRequest">
+            <summary>
+            The request instance
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.RequestHolder.AsyncResultHandler">
+            <summary>
+            The handler
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.RequestHolder.RequestTimeout">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:CityIndex.JsonClient.RequestHolder.RequestIndex">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.IJsonExceptionFactory">
+            <summary>
+             Converts json text to service specific exception
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.IJsonExceptionFactory.ParseException(System.String)">
+            <summary>
+            </summary>
+            <param name="json"></param>
+            <returns>Null if json is not recognized as an exception</returns>
+        </member>
+        <member name="T:CityIndex.JsonClient.NullJsonExceptionFactory">
+            <summary>
+             Returns null in all cases
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.ApiAsyncResultBase">
+            <summary>
+            A placeholder base class that simplifies other program logic
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.ApiAsyncResult`1">
+            <summary>
+            The asynch request handle that is passed back to the <see cref="T:CityIndex.JsonClient.Client"/> to retrieve the result of the request.
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.ApiAsyncResult`1.End">
+            <summary>
+            This could be made public to obviate the need for a reference to the context but
+            in doing so, we 1) break the standard async pattern, and 2) give up the ability to monitor and possibly
+            preprocess the response before letting the caller have it. I vote NO.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:CityIndex.JsonClient.ApiAsyncResult`1.Id">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.CacheItemEventArgs">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.CacheItemEventArgs.#ctor(CityIndex.JsonClient.CacheItemBase)">
+            <summary>
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="P:CityIndex.JsonClient.CacheItemEventArgs.Item">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.Converters.UnixDateTimeOffsetHelper">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.Converters.UnixDateTimeOffsetHelper.FromUnixTime(System.Int64)">
+            <summary>
+              Convert a long into a DateTimeOffset
+              Need to double check that UTC is not required
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.Converters.UnixDateTimeOffsetHelper.ToUnixTime(System.DateTimeOffset)">
+            <summary>
+            </summary>
+            <param name="self"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CityIndex.JsonClient.Converters.UnixDateTimeOffsetHelper.ToUnixTime(System.DateTimeOffset,System.Boolean)">
+            <summary>
+              Convert a DateTimeOffset into a long
+              Need to double check that UTC is not required
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.Converters.UnixDateTimeHelper">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.Converters.UnixDateTimeHelper.FromUnixTime(System.Int64)">
+            <summary>
+              Convert a long into a DateTime
+              Need to double check that UTC is not required
+            </summary>
+        </member>
+        <member name="M:CityIndex.JsonClient.Converters.UnixDateTimeHelper.ToUnixTime(System.DateTime)">
+            <summary>
+              Convert a DateTime into a long
+              Need to double check that UTC is not required
+            </summary>
+        </member>
+        <member name="T:CityIndex.JsonClient.Converters.ApiEnumConverter">
+            <summary>
+            Converts an <see cref="T:System.Enum"/> to and from its name string value.
+            </summary>
+        </member>
+    </members>
+</doc>
