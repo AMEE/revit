@@ -7,14 +7,64 @@
   <!--
     1:Aluminum-6061
     1:Aluminum-6061-AHC
+  -->
+  <Material>
+    <InternalName>1:Aluminium</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>      
+  <!--  
     1:Brass, Soft Yellow
     1:Bronze, Soft Tin
+ -->
+  <Material>
+    <InternalName>1:Brass</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Brass</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material> 
+ <!--
     1:Carbon Steel
-    1:Cast Bronze
-    1:Cast Copper
-    1:Cast Iron
-    1:Cast Steel
   -->
+  <Material>
+    <InternalName>1:Steel</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Steel</Drill>
+        <Drill name="type">Engineering</Drill>
+        <Drill name="subtype">Recycled</Drill>
+      </Drills>
+    </AMEE>
+  </Material>  
+  <!--
+    1:Cast Bronze
+    -->
+  <Material>
+    <InternalName>1:Bronze</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Bronze</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>      
+    <!--
+    1:Cast Copper
+    -->
   <Material>
     <InternalName>1:Copper</InternalName>
     <AMEE>
@@ -25,12 +75,53 @@
         <Drill name="subtype">Average</Drill>
       </Drills>
     </AMEE>
+  </Material>    
+    <!--
+    1:Cast Iron
+  -->
+  <Material>
+    <InternalName>1:Iron</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Iron</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>  
+  <!--
+    1:Cast Steel
+  -->
+  <Material>
+    <InternalName>1:Steel</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Steel</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">World average</Drill>
+      </Drills>
+    </AMEE>
   </Material>
   <!--
     1:Copper Alloy
     1:Default
     1:Ductile Iron
     1:Galvanized Steel
+    -->
+  <Material>
+    <InternalName>1:Steel</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Steel</Drill>
+        <Drill name="type">Galvanised coil (sheet)</Drill>
+        <Drill name="subtype">World average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>      
+    <!--
     1:GFRC (Glass Fiber Reinforced Concrete)
     1:Glass
     1:Gold
