@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using AMEEClient.Model;
 using CityIndex.JsonClient;
 
 namespace AMEEClient.MaterialMapper
@@ -34,36 +36,7 @@ namespace AMEEClient.MaterialMapper
             }
         }
 
-//        private void EnsureMaterialDataItemIsLoaded(string materialName)
-//        {
-//
-//                            if (_uid == null) {
-//             Do drill and get UID
-//                                RestRequest request = new RestRequest(Method.GET);
-//                                string drillString = "";
-//                                foreach (List<string> x in drills)
-//                                {
-//                                    if (drillString.Length != 0)
-//                                        drillString += '&';
-//                                    drillString += HttpUtility.UrlEncode(x[0]);
-//                                    drillString += '=';
-//                                    drillString += HttpUtility.UrlEncode(x[1]);
-//                                }
-//                                request.Resource = "/data" + _path + "/drill?" + drillString;
-//                                RestResponse response = Connection.Instance().DoRequest(request);
-//                                XmlNodeList nodes = Connection.Xpath(response.Content, "//amee:Choices/amee:Choice/amee:Name/text()");
-//                                if (nodes.Count > 0)
-//                                {
-//                                    _uid = nodes.Item(0).Value;
-//                                }
-//                                else
-//                                {
-//                                    throw new Exception("Bad drill: " + _path + " " + drillString);
-//                                }
-//                            }
-//                            return _uid;
-//                        }
-//        }
+
 
         public string DiscoverLink()
         {
@@ -71,5 +44,10 @@ namespace AMEEClient.MaterialMapper
             return Drills.Aggregate(link, (current, x) => current + ("/" + HttpUtility.UrlEncode(x[1])));
         }
 
+        public object CalculateCO2eByMass(int massInKg)
+        {
+            var response = _ameeClient.Calculate(Path, UID, new ValueItem("mass", massInKg.ToString()));
+            return response.Amounts.Amount.First(a => a.Type == "CO2e").Value;
+        }
     }
 }
