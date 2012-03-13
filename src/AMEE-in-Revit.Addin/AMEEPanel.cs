@@ -2,18 +2,18 @@
 using System.IO;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
+using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI;
 
 namespace AMEE_in_Revit.Addin
 {
+    [Transaction(TransactionMode.Manual)]
+    [Regeneration(RegenerationOption.Manual)]
+    [Journaling(JournalingMode.UsingCommandData)]
     public class AMEEPanel : IExternalApplication
     {
-        // ExternalCommands assembly path
         static string AddInPath = typeof(AMEEPanel).Assembly.Location;
-        // Button icons directory
         static string ButtonIconsFolder = Path.GetDirectoryName(AddInPath);
-        // uiApplication
-        static UIApplication uiApplication = null;
 
         public Result OnStartup(UIControlledApplication application)
         {
@@ -40,7 +40,6 @@ namespace AMEE_in_Revit.Addin
             // Set the large image shown on button
             pushButton.LargeImage = new BitmapImage(new Uri(ButtonIconsFolder+ @"\AMEE.ico"));
         }
-
 
         public Result OnShutdown(UIControlledApplication application)
         {

@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RevitAddIns>
+  <AddIn Type="Command">
+    <Assembly>C:\Dev\AMEE\revit\src\AMEE-in-Revit.Addin\bin\Debug\AMEE-in-Revit.Addin.dll</Assembly>
+    <ClientId>CBE11F8F-D556-4F08-9A03-38B825078FC5</ClientId>
+    <FullClassName>AMEE_in_Revit.Addin.SimpleExternalCommand</FullClassName>
+    <Text>(AMEE) Simple test command</Text>
+    <Description>Integrates AMEE climate data into Revit</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>AMEE</VendorId>
+    <VendorDescription>AMEE, www.amee.com</VendorDescription>
+  </AddIn>
   <AddIn Type="Application">
     <Name>AMEE-in-Revit</Name>
     <Assembly>C:\Dev\AMEE\revit\src\AMEE-in-Revit.Addin\bin\Debug\AMEE-in-Revit.Addin.dll</Assembly>
@@ -12,10 +22,10 @@
   <AddIn Type="Application">
     <Assembly>C:\Dev\AMEE\revit\src\AMEE-in-Revit.Addin\bin\Debug\AMEE-in-Revit.Addin.dll</Assembly>
     <ClientId>FDA871B6-5DEA-4CFF-A35D-C1E1E742D981</ClientId>
-    <FullClassName>AMEE_in_Revit.Addin.AMEEVisualization</FullClassName>
-    <Text>DistanceToSurfaces</Text>
-    <Name>Display distance between sphere and surfaces</Name>
-    <VendorId>ADSK</VendorId>
-    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+    <FullClassName>AMEE_in_Revit.Addin.AttachAMEEVisualizations</FullClassName>
+    <Text>Visualise AMEE CO2e data</Text>
+    <Name>Visualises the AMEE CO2e data for the model</Name>
+    <VendorId>AMEE</VendorId>
+    <VendorDescription>AMEE, www.amee.com</VendorDescription>
   </AddIn>
 </RevitAddIns>
