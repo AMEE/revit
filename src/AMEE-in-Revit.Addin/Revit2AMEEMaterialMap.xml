@@ -7,16 +7,110 @@
   <!--
     1:Aluminum-6061
     1:Aluminum-6061-AHC
-    1:Brass, Soft Yellow
-    1:Bronze, Soft Tin
-    1:Carbon Steel
-    1:Cast Bronze
-    1:Cast Copper
-    1:Cast Iron
-    1:Cast Steel
   -->
   <Material>
-    <InternalName>1:Copper</InternalName>
+    <InternalName>1:Aluminium</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>    
+  <Material>
+    <InternalName>1:Aluminum-6061</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>   
+  <Material>
+    <InternalName>1:Aluminum-6061-AHC</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>   
+  <!--  
+    1:Brass, Soft Yellow
+    1:Bronze, Soft Tin
+ -->
+  <Material>
+    <InternalName>1:Brass</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Brass</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material> 
+  <Material>
+    <InternalName>1:Brass, Soft Yellow</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Brass</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material> 
+  <Material>
+    <InternalName>1:Bronze, Soft Tin</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Bronze</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>     
+ <!--
+    1:Carbon Steel
+  -->
+  <Material>
+    <InternalName>1:Carbon Steel</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Steel</Drill>
+        <Drill name="type">Engineering</Drill>
+        <Drill name="subtype">Recycled</Drill>
+      </Drills>
+    </AMEE>
+  </Material>  
+  <!--
+    1:Cast Bronze
+    -->
+  <Material>
+    <InternalName>1:Cast Bronze</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Bronze</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>      
+    <!--
+    1:Cast Copper
+    -->
+  <Material>
+    <InternalName>1:Cast Copper</InternalName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -25,17 +119,120 @@
         <Drill name="subtype">Average</Drill>
       </Drills>
     </AMEE>
+  </Material>    
+    <!--
+    1:Cast Iron
+  -->
+  <Material>
+    <InternalName>1:Cast Iron</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Iron</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>  
+  <!--
+    1:Cast Steel
+  -->
+  <Material>
+    <InternalName>1:Cast Steel</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Steel</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">World average</Drill>
+      </Drills>
+    </AMEE>
   </Material>
   <!--
     1:Copper Alloy
+    -->
+  <Material>
+    <InternalName>1:Copper Alloy</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Copper</Drill>
+        <Drill name="type">EU Tube and Sheet</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>     
+    <!--
     1:Default
     1:Ductile Iron
+  -->
+  <Material>
+    <InternalName>1:Ductile Iron</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Iron</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>    
+  <!--
     1:Galvanized Steel
+    -->
+  <Material>
+    <InternalName>1:Galvanized Steel</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Steel</Drill>
+        <Drill name="type">Galvanised coil (sheet)</Drill>
+        <Drill name="subtype">World average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>      
+    <!--
     1:GFRC (Glass Fiber Reinforced Concrete)
+    -->    
+    <!--
     1:Glass
+    -->
+  <Material>
+    <InternalName>1:Glass</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Glass</Drill>
+        <Drill name="type">Primary Glass</Drill>
+      </Drills>
+    </AMEE>
+  </Material>    
+    <!--
     1:Gold
     1:Gray Iron
   -->
+  <Material>
+    <InternalName>1:Iron</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Iron</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>   
+  <Material>
+    <InternalName>1:Gray Iron</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Iron</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>    
   <Material>
     <InternalName>1:High Density Polyethylene</InternalName>
     <AMEE>
@@ -87,15 +284,87 @@
     1:Non-Alloy Steel
     1:Nylon-6/6
     1:Nylon Composite (Nylon, molybdenum disulphide)
+    -->
+ <Material>
+    <InternalName>1:Nylon-6/6</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">"Nylon (Polyamide)</Drill>
+        <Drill name="subtype">6,6 Polymer</Drill>
+      </Drills>
+    </AMEE>
+  </Material>     
+    <!--
     1:PBT Plastic
     1:PC_ABS Plastic
     1:PET Plastic
+    -->
+ <Material>
+    <InternalName>1:PBT Plastic</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>                     
+ <Material>
+    <InternalName>1:PC_ABS Plastic</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">ABS</Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>                 
+ <Material>
+    <InternalName>1:PET Plastic</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">"General polyethylene</Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>     
+    <!--
     1:Phenolic
     1:PMMA Plastic
     1:Polyaryletherketone Resin
+    -->
+  <!--
     1:Polycarbonate, Clear
     1:Polycarbonate, Smoke
-  -->
+  -->    
+ <Material>
+    <InternalName>1:Polycarbonate, Clear</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">"Polycarbonate</Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>         
+ <Material>
+    <InternalName>1:Polycarbonate, Smoke</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">"Polycarbonate</Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>         
   <Material>
     <InternalName>1:Polypropylene</InternalName>
     <AMEE>
@@ -120,14 +389,89 @@
   </Material>
   <!--
     1:Portland Cement Concrete
-    1:PPS Plastic
+-->
+  <Material>
+    <InternalName>1:Cement</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Cement</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">UK weighted average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>   
+   <!--1:PPS Plastic
     1:PVC-Piping
-    1:PVC-U
+    1:PVC-U    
+    -->
+  <Material>
+    <InternalName>1:Plastics</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">PVC</Drill>
+        <Drill name="subtype">Pipe</Drill>
+      </Drills>
+    </AMEE>
+  </Material>      
+  <Material>
+    <InternalName>1:PVC-U</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">UPVC film</Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>    
+    <!--
     1:Rubber
+    -->
+  <Material>
+    <InternalName>1:Rubber</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Rubber</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>     
+    <!--
     1:SAN Plastic
     1:Silicon Nitride
     1:Silicone
+-->
+  <Material>
+    <InternalName>1:Sealants and adhesives</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Sealants and adhesives</Drill>
+        <Drill name="type">Mastic sealant</Drill>
+        <Drill name="subtype">Mean</Drill>
+      </Drills>
+    </AMEE>
+  </Material> 
+<!--
     1:Silver
+    -->
+   <Material>
+    <InternalName>1:Silver</InternalName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Silver</Drill>
+        <Drill name="type"></Drill>
+        <Drill name="subtype"></Drill>
+      </Drills>
+    </AMEE>
+  </Material>    
+    <!--
     1:Stainless Steel
     1:Stainless Steel, 440C
     1:Stainless Steel, Austenitic
