@@ -34,7 +34,7 @@ namespace AMEEClient.Tests.MaterialMapper
         }
 
         [Test, Category("CallsAMEEConnect")]
-        public void CanCalculateMaterialCO2e()
+        public void CanCalculateMaterialCO2eByMass()
         {
             var mapper = new AMEEClient.MaterialMapper.MaterialMapper(@"MaterialMapper\SampleMaterialMap.xml", _ameeClient);
 

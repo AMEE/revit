@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AMEE_in_Revit.Addin.Visualizations;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 
-namespace AMEE_in_Revit.Addin
+namespace AMEE_in_Revit.Addin.Commands
 {
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]

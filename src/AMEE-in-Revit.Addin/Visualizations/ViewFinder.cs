@@ -2,7 +2,7 @@
 using System.Linq;
 using Autodesk.Revit.DB;
 
-namespace AMEE_in_Revit.Addin
+namespace AMEE_in_Revit.Addin.Visualizations
 {
     public class ViewFinder
     {

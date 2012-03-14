@@ -5,7 +5,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Analysis;
 using Autodesk.Revit.UI;
 
-namespace AMEE_in_Revit.Addin
+namespace AMEE_in_Revit.Addin.Visualizations
 {
     public class CO2eFieldUpdater : IUpdater
     {
@@ -36,8 +36,7 @@ namespace AMEE_in_Revit.Addin
             sfm.Clear();
 
             var collector = new FilteredElementCollector(doc, view.Id);
-            ICollection<Element> elements = collector.WherePasses(GetFilter()).WhereElementIsNotElementType().ToElements();
-
+            ICollection<Element> elements = collector.WherePasses(ElementCO2eCalculator.CreateFilterForAMEECompatibleElements()).WhereElementIsNotElementType().ToElements();
             
             foreach (var element in elements)
             {
@@ -127,17 +126,10 @@ namespace AMEE_in_Revit.Addin
             var updater = new CO2eFieldUpdater(uiApp.ActiveAddInId, view.Id);
             if (!UpdaterRegistry.IsUpdaterRegistered(updater.GetUpdaterId())) UpdaterRegistry.RegisterUpdater(updater);
 
-            var filter = GetFilter();
+            var filter = ElementCO2eCalculator.CreateFilterForAMEECompatibleElements();
 
             UpdaterRegistry.AddTrigger(updater.GetUpdaterId(), filter, Element.GetChangeTypeGeometry());
             UpdaterRegistry.AddTrigger(updater.GetUpdaterId(), filter, Element.GetChangeTypeElementDeletion());
-        }
-
-        private static LogicalOrFilter GetFilter()
-        {
-            var wallFilter = new ElementCategoryFilter(BuiltInCategory.OST_Walls);
-            IList<ElementFilter> filterList = new List<ElementFilter> { wallFilter };
-            return new LogicalOrFilter(filterList);
         }
     }
 }

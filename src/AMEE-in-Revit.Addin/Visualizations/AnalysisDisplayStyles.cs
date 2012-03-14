@@ -3,7 +3,7 @@ using System.Linq;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Analysis;
 
-namespace AMEE_in_Revit.Addin
+namespace AMEE_in_Revit.Addin.Visualizations
 {
     public class AnalysisDisplayStyles
     {

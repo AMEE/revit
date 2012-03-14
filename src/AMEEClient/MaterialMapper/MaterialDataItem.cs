@@ -44,10 +44,11 @@ namespace AMEEClient.MaterialMapper
             return Drills.Aggregate(link, (current, x) => current + ("/" + HttpUtility.UrlEncode(x[1])));
         }
 
-        public object CalculateCO2eByMass(int massInKg)
+        public double CalculateCO2eByMass(double massInKg)
         {
             var response = _ameeClient.Calculate(Path, UID, new ValueItem("mass", massInKg.ToString()));
-            return response.Amounts.Amount.First(a => a.Type == "CO2e").Value;
+            return Convert.ToDouble(response.Amounts.Amount.First(a => a.Type == "CO2e").Value);
         }
+
     }
 }

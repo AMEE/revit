@@ -64,6 +64,12 @@
   <ItemGroup>
     <Compile Include="AMEEPanel.cs" />
     <Compile Include="AttachAMEEVisualizations.cs" />
+    <Compile Include="Commands\AddCO2eParameterCommand.cs" />
+    <Compile Include="Commands\RecalculateCO2eCommand.cs" />
+    <Compile Include="ElementCO2eCalculator.cs" />
+    <Compile Include="SharedParameters\OpenSharedParamFileException.cs" />
+    <Compile Include="SharedParameters\SharedParameterDefinition.cs" />
+    <Compile Include="SharedParameters\SharedParameterManipulator.cs" />
     <Compile Include="Visualizations\ViewFinder.cs" />
     <Compile Include="Visualizations\AnalysisDisplayStyles.cs" />
     <Compile Include="Visualizations\CO2eFieldUpdater.cs" />

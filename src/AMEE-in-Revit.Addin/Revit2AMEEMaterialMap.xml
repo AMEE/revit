@@ -9,7 +9,7 @@
     1:Aluminum-6061-AHC
   -->
   <Material>
-    <InternalName>1:Aluminium</InternalName>
+    <MaterialName>1:Aluminium</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -20,7 +20,7 @@
     </AMEE>
   </Material>    
   <Material>
-    <InternalName>1:Aluminum-6061</InternalName>
+    <MaterialName>1:Aluminum-6061</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -31,7 +31,7 @@
     </AMEE>
   </Material>   
   <Material>
-    <InternalName>1:Aluminum-6061-AHC</InternalName>
+    <MaterialName>1:Aluminum-6061-AHC</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -46,7 +46,7 @@
     1:Bronze, Soft Tin
  -->
   <Material>
-    <InternalName>1:Brass</InternalName>
+    <MaterialName>1:Brass</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -57,7 +57,7 @@
     </AMEE>
   </Material> 
   <Material>
-    <InternalName>1:Brass, Soft Yellow</InternalName>
+    <MaterialName>1:Brass, Soft Yellow</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -68,7 +68,7 @@
     </AMEE>
   </Material> 
   <Material>
-    <InternalName>1:Bronze, Soft Tin</InternalName>
+    <MaterialName>1:Bronze, Soft Tin</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -82,7 +82,7 @@
     1:Carbon Steel
   -->
   <Material>
-    <InternalName>1:Carbon Steel</InternalName>
+    <MaterialName>1:Carbon Steel</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -96,7 +96,7 @@
     1:Cast Bronze
     -->
   <Material>
-    <InternalName>1:Cast Bronze</InternalName>
+    <MaterialName>1:Cast Bronze</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -110,7 +110,7 @@
     1:Cast Copper
     -->
   <Material>
-    <InternalName>1:Cast Copper</InternalName>
+    <MaterialName>1:Cast Copper</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -124,7 +124,7 @@
     1:Cast Iron
   -->
   <Material>
-    <InternalName>1:Cast Iron</InternalName>
+    <MaterialName>1:Cast Iron</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -138,7 +138,7 @@
     1:Cast Steel
   -->
   <Material>
-    <InternalName>1:Cast Steel</InternalName>
+    <MaterialName>1:Cast Steel</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -152,7 +152,7 @@
     1:Copper Alloy
     -->
   <Material>
-    <InternalName>1:Copper Alloy</InternalName>
+    <MaterialName>1:Copper Alloy</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -167,7 +167,7 @@
     1:Ductile Iron
   -->
   <Material>
-    <InternalName>1:Ductile Iron</InternalName>
+    <MaterialName>1:Ductile Iron</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -181,7 +181,7 @@
     1:Galvanized Steel
     -->
   <Material>
-    <InternalName>1:Galvanized Steel</InternalName>
+    <MaterialName>1:Galvanized Steel</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -198,7 +198,7 @@
     1:Glass
     -->
   <Material>
-    <InternalName>1:Glass</InternalName>
+    <MaterialName>1:Glass</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -212,7 +212,7 @@
     1:Gray Iron
   -->
   <Material>
-    <InternalName>1:Iron</InternalName>
+    <MaterialName>1:Iron</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -223,7 +223,7 @@
     </AMEE>
   </Material>   
   <Material>
-    <InternalName>1:Gray Iron</InternalName>
+    <MaterialName>1:Gray Iron</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -234,7 +234,7 @@
     </AMEE>
   </Material>    
   <Material>
-    <InternalName>1:High Density Polyethylene</InternalName>
+    <MaterialName>1:High Density Polyethylene</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -244,7 +244,7 @@
     </AMEE>
   </Material>
   <Material>
-    <InternalName>1:High Impact Polystyrene</InternalName>
+    <MaterialName>1:High Impact Polystyrene</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -258,7 +258,7 @@
     1:LCP Plastic
   -->
   <Material>
-    <InternalName>1:Lead</InternalName>
+    <MaterialName>1:Lead</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -269,7 +269,7 @@
     </AMEE>
   </Material>
   <Material>
-    <InternalName>1:Low Density Polyethylene</InternalName>
+    <MaterialName>1:Low Density Polyethylene</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -286,7 +286,7 @@
     1:Nylon Composite (Nylon, molybdenum disulphide)
     -->
  <Material>
-    <InternalName>1:Nylon-6/6</InternalName>
+    <MaterialName>1:Nylon-6/6</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -302,7 +302,7 @@
     1:PET Plastic
     -->
  <Material>
-    <InternalName>1:PBT Plastic</InternalName>
+    <MaterialName>1:PBT Plastic</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -313,7 +313,7 @@
     </AMEE>
   </Material>                     
  <Material>
-    <InternalName>1:PC_ABS Plastic</InternalName>
+    <MaterialName>1:PC_ABS Plastic</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -324,7 +324,7 @@
     </AMEE>
   </Material>                 
  <Material>
-    <InternalName>1:PET Plastic</InternalName>
+    <MaterialName>1:PET Plastic</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -344,7 +344,7 @@
     1:Polycarbonate, Smoke
   -->    
  <Material>
-    <InternalName>1:Polycarbonate, Clear</InternalName>
+    <MaterialName>1:Polycarbonate, Clear</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -355,7 +355,7 @@
     </AMEE>
   </Material>         
  <Material>
-    <InternalName>1:Polycarbonate, Smoke</InternalName>
+    <MaterialName>1:Polycarbonate, Smoke</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -366,7 +366,7 @@
     </AMEE>
   </Material>         
   <Material>
-    <InternalName>1:Polypropylene</InternalName>
+    <MaterialName>1:Polypropylene</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -377,7 +377,7 @@
     </AMEE>
   </Material>
   <Material>
-    <InternalName>1:Polystyrene</InternalName>
+    <MaterialName>1:Polystyrene</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -391,7 +391,7 @@
     1:Portland Cement Concrete
 -->
   <Material>
-    <InternalName>1:Cement</InternalName>
+    <MaterialName>1:Cement</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -406,7 +406,7 @@
     1:PVC-U    
     -->
   <Material>
-    <InternalName>1:Plastics</InternalName>
+    <MaterialName>1:Plastics</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -417,7 +417,7 @@
     </AMEE>
   </Material>      
   <Material>
-    <InternalName>1:PVC-U</InternalName>
+    <MaterialName>1:PVC-U</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -431,7 +431,7 @@
     1:Rubber
     -->
   <Material>
-    <InternalName>1:Rubber</InternalName>
+    <MaterialName>1:Rubber</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -447,7 +447,7 @@
     1:Silicone
 -->
   <Material>
-    <InternalName>1:Sealants and adhesives</InternalName>
+    <MaterialName>1:Sealants and adhesives</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -461,7 +461,7 @@
     1:Silver
     -->
    <Material>
-    <InternalName>1:Silver</InternalName>
+    <MaterialName>1:Silver</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -481,7 +481,7 @@
     1:Thermoplastic Resin
   -->
   <Material>
-    <InternalName>1:Titanium</InternalName>
+    <MaterialName>1:Titanium</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -499,7 +499,7 @@
     1:Welded Steel Mild
   -->
   <Material>
-    <InternalName>1:Wood (Birch)</InternalName>
+    <MaterialName>1:Wood (Birch)</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/timber</Path>
       <Drills>
@@ -508,7 +508,7 @@
     </AMEE>
   </Material>
   <Material>
-    <InternalName>1:Wood (Cherry)</InternalName>
+    <MaterialName>1:Wood (Cherry)</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/timber</Path>
       <Drills>
@@ -517,7 +517,7 @@
     </AMEE>
   </Material>
   <Material>
-    <InternalName>1:Wood (Maple)</InternalName>
+    <MaterialName>1:Wood (Maple)</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/timber</Path>
       <Drills>
@@ -526,7 +526,7 @@
     </AMEE>
   </Material>
   <Material>
-    <InternalName>1:Wood (Oak)</InternalName>
+    <MaterialName>1:Wood (Oak)</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/timber</Path>
       <Drills>
@@ -535,7 +535,7 @@
     </AMEE>
   </Material>
   <Material>
-    <InternalName>1:Wood (Walnut)</InternalName>
+    <MaterialName>1:Wood (Walnut)</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/timber</Path>
       <Drills>
@@ -543,7 +543,67 @@
       </Drills>
     </AMEE>
   </Material>
-  <!--
-    1:Wrought Copper
-  -->
+
+  <Material>
+    <MaterialName>Masonry - Brick</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+
+  <Material>
+    <MaterialName>Masonry - Concrete Block</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+
+  <Material>
+    <MaterialName>Plasterboard</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+
+  <Material>
+    <MaterialName>Insulation / Thermal Barriers</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+
+  <Material>
+    <MaterialName>Insulation / Thermal Barriers - Batt insulation</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  
+  
+
 </Materials>
