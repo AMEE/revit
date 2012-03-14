@@ -23,7 +23,7 @@ namespace AMEE_in_Revit.Addin.Commands
             sw.Start();
 
             var ameeClient = new Client(new Uri(Settings.AmeeUrl), Settings.AmeeUserName, Settings.AmeePassword);
-            var calculator = new ElementCO2eCalculator(new MaterialMapper(@"Revit2AMEEMaterialMap.xml", ameeClient));
+            var calculator = new ElementCO2eCalculator(new MaterialMapper(Path.Combine(Path.GetDirectoryName(GetType().Assembly.CodeBase),@"Revit2AMEEMaterialMap.xml"), ameeClient));
 
             var collector = new FilteredElementCollector(commandData.Application.ActiveUIDocument.Document);
             ICollection<Element> ameeElements = collector.WherePasses(ElementCO2eCalculator.CreateFilterForAMEECompatibleElements()).WhereElementIsNotElementType().ToElements();
