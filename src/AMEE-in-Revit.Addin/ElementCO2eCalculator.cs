@@ -20,8 +20,18 @@ namespace AMEE_in_Revit.Addin
 
         public static LogicalOrFilter CreateFilterForAMEECompatibleElements()
         {
-            var wallFilter = new ElementCategoryFilter(BuiltInCategory.OST_Walls);
-            IList<ElementFilter> filterList = new List<ElementFilter> { wallFilter };
+            IList<ElementFilter> filterList = new List<ElementFilter>
+                                                  {
+                                                      new ElementCategoryFilter(BuiltInCategory.OST_Walls),
+                                                      new ElementCategoryFilter(BuiltInCategory.OST_Floors),
+                                                      new ElementCategoryFilter(BuiltInCategory.OST_Roofs),
+                                                      new ElementCategoryFilter(BuiltInCategory.OST_Doors),
+                                                      new ElementCategoryFilter(BuiltInCategory.OST_Columns),
+                                                      new ElementCategoryFilter(BuiltInCategory.OST_StructuralColumns),
+                                                      new ElementCategoryFilter(BuiltInCategory.OST_Stairs),
+                                                      new ElementCategoryFilter(BuiltInCategory.OST_Ramps),
+                                                      new ElementCategoryFilter(BuiltInCategory.OST_Ceilings)
+                                                  };
             return new LogicalOrFilter(filterList);
         }
 
@@ -46,8 +56,8 @@ namespace AMEE_in_Revit.Addin
                         uniqueMaterials.Add(materialKey);
                     }
 
-//                    var ameeMaterial = _materialMapper.GetMaterialDataItem(material.Name);
-//                    totalElementCO2e += ameeMaterial.CalculateCO2eByMass(materialMassInKg);
+                    var ameeMaterial = _materialMapper.GetMaterialDataItem(materialKey);
+                    totalElementCO2e += ameeMaterial.CalculateCO2eByMass(materialMassInKg);
                 }
 
                 element.ParametersMap.get_Item("CO2e").Set(totalElementCO2e);
