@@ -544,6 +544,7 @@
     </AMEE>
   </Material>
 
+  <!-- Materials in rac_advanced_sample_project.rvt listed below: -->
   <Material>
     <MaterialName>Masonry - Brick</MaterialName>
     <AMEE>
@@ -557,7 +558,7 @@
   </Material>
 
   <Material>
-    <MaterialName>Masonry - Concrete Block</MaterialName>
+    <MaterialName>415:Masonry - Concrete Block</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -569,7 +570,43 @@
   </Material>
 
   <Material>
-    <MaterialName>Plasterboard</MaterialName>
+    <MaterialName>523:Concrete - Cast In Situ</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  
+  <Material>
+    <MaterialName>140876:Concrete - Cast-in-Place Concrete</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+
+  <Material>
+    <MaterialName>24:Default Wall</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  
+  <Material>
+    <MaterialName>423:Plasterboard</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -603,7 +640,228 @@
       </Drills>
     </AMEE>
   </Material>
-  
-  
 
+  <Material>
+    <MaterialName>554:Insulation / Thermal Barriers - External Wall Insulation</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  
+  <Material>
+    <MaterialName>420:Insulation / Thermal Barriers - Rigid insulation</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+
+  <Material>
+    <MaterialName>240049:Carpet (1)</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  
+  <Material>
+    <MaterialName>419:Air Barrier - Air Infiltration Barrier</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  
+  <Material>
+    <MaterialName>421:Vapour / Moisture Barriers - Vapour Retarder</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  
+  <Material>
+    <MaterialName>792:Roofing - EPDM Membrane</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  
+  <Material>
+    <MaterialName>25:Default Roof</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  
+  <Material>
+    <MaterialName>10429:Door - Panel</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <Material>
+    <MaterialName>30200:Door - Frame</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <Material>
+    <MaterialName>240267:Paint - Maroon Glossy</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  
+  <Material>
+    <MaterialName>23:Default</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  
+  <Material>
+    <MaterialName>7247:Ceiling Tile 600 x 600</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  
+  <Material>
+    <MaterialName>26:Glass</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  
+  <Material>
+    <MaterialName>538:Wood - Flooring</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+
+  <Material>
+    <MaterialName>416:Metal - Stud Layer</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  
+  <Material>
+    <MaterialName>187849:Metal - Aluminum</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  
+  <Material>
+    <MaterialName>170392:Metal - Paint Finish - Paint Cafe Matte</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <Material>
+    <MaterialName>200937:Metal - Sunscreen</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
+  <Material>
+    <MaterialName>85087:Metal - Steel - 345 MPa</MaterialName>
+    <AMEE>
+      <Path>/embodied/ice/v2/mass</Path>
+      <Drills>
+        <Drill name="material">Aluminium</Drill>
+        <Drill name="type">General</Drill>
+        <Drill name="subtype">Average</Drill>
+      </Drills>
+    </AMEE>
+  </Material>
 </Materials>
