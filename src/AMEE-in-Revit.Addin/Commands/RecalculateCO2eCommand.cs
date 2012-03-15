@@ -26,7 +26,7 @@ namespace AMEE_in_Revit.Addin.Commands
             var calculator = new ElementCO2eCalculator(new MaterialMapper(Path.Combine(Path.GetDirectoryName(GetType().Assembly.CodeBase),@"Revit2AMEEMaterialMap.xml"), ameeClient));
 
             var collector = new FilteredElementCollector(commandData.Application.ActiveUIDocument.Document);
-            ICollection<Element> ameeElements = collector.WherePasses(ElementCO2eCalculator.CreateFilterForAMEECompatibleElements()).WhereElementIsNotElementType().ToElements();
+            ICollection<Element> ameeElements = collector.WherePasses(Settings.CreateFilterForElementsWithCO2eParameter()).WhereElementIsNotElementType().ToElements();
 
             var transaction = new Transaction(commandData.Application.ActiveUIDocument.Document, "RecalculateCO2eCommand");
             transaction.Start();

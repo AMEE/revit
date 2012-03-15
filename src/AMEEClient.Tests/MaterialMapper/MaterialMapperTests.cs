@@ -41,6 +41,16 @@ namespace AMEEClient.Tests.MaterialMapper
             Assert.AreEqual(271, mapper.GetMaterialDataItem("1:Copper").CalculateCO2eByMass(100));
         }
 
+        [Test, Category("CallsAMEEConnect")]
+        public void CanCalculateMaterialCO2eByVolume()
+        {
+            var mapper = new AMEEClient.MaterialMapper.MaterialMapper(@"MaterialMapper\SampleMaterialMap.xml", _ameeClient);
+
+            var material = mapper.GetMaterialDataItem("1:Copper");
+            var co2eFor1Kg = material.CalculateCO2eByMass(1);
+            Assert.AreEqual(co2eFor1Kg*material.Density, material.CalculateCO2eByVolume(1));
+        }
+
         [Test, Explicit("Should only run this manually"), Category("CallsAMEEConnect")]
         public void TimeMultipleCalculationCalls()
         {

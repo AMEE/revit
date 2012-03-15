@@ -36,16 +36,30 @@ namespace AMEEClient.MaterialMapper
             }
         }
 
-
+        public double DensityKgPerM3
+        {
+            get
+            {
+                //TODO - where can we get the actual density from?
+                return 2;
+            }
+        }
 
         public string DiscoverLink()
         {
-            string link = "http://discover.amee.com/categories" + Path + "/data";
+            var link = "http://discover.amee.com/categories" + Path + "/data";
             return Drills.Aggregate(link, (current, x) => current + ("/" + HttpUtility.UrlEncode(x[1])));
         }
 
         public double CalculateCO2eByMass(double massInKg)
         {
+            var response = _ameeClient.Calculate(Path, UID, new ValueItem("mass", massInKg.ToString()));
+            return Convert.ToDouble(response.Amounts.Amount.First(a => a.Type == "CO2e").Value);
+        }
+
+        public double CalculateCO2eByVolume(double volumeInM3)
+        {
+            var massInKg = volumeInM3*DensityKgPerM3;
             var response = _ameeClient.Calculate(Path, UID, new ValueItem("mass", massInKg.ToString()));
             return Convert.ToDouble(response.Amounts.Amount.First(a => a.Type == "CO2e").Value);
         }

@@ -39,7 +39,7 @@ namespace AMEE_in_Revit.Addin.SharedParameters
 
         private void AttachCategoryToAllBuildInCategories(Definition definition)
         {
-            foreach (var builtInCategoryId in Settings.BuiltInCategoriesWithCO2eParamater)
+            foreach (var builtInCategoryId in Settings.BuiltInCategoriesWithCO2eParameter)
             {
                 var category = _activeUIDocument.Settings.Categories.get_Item(builtInCategoryId);
                 var categorySet = _dbApplication.Create.NewCategorySet();

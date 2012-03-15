@@ -36,7 +36,7 @@ namespace AMEE_in_Revit.Addin.Visualizations
             sfm.Clear();
 
             var collector = new FilteredElementCollector(doc, view.Id);
-            ICollection<Element> elements = collector.WherePasses(ElementCO2eCalculator.CreateFilterForAMEECompatibleElements()).WhereElementIsNotElementType().ToElements();
+            ICollection<Element> elements = collector.WherePasses(Settings.CreateFilterForElementsWithCO2eParameter()).WhereElementIsNotElementType().ToElements();
             
             foreach (var element in elements)
             {
@@ -126,7 +126,7 @@ namespace AMEE_in_Revit.Addin.Visualizations
             var updater = new CO2eFieldUpdater(uiApp.ActiveAddInId, view.Id);
             if (!UpdaterRegistry.IsUpdaterRegistered(updater.GetUpdaterId())) UpdaterRegistry.RegisterUpdater(updater);
 
-            var filter = ElementCO2eCalculator.CreateFilterForAMEECompatibleElements();
+            var filter = Settings.CreateFilterForElementsWithCO2eParameter();
 
             UpdaterRegistry.AddTrigger(updater.GetUpdaterId(), filter, Element.GetChangeTypeGeometry());
             UpdaterRegistry.AddTrigger(updater.GetUpdaterId(), filter, Element.GetChangeTypeElementDeletion());
