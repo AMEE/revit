@@ -17,6 +17,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>    
   <Material>
@@ -76,6 +77,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype"></Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>     
  <!--
@@ -118,6 +120,7 @@
         <Drill name="type">EU Tube and Sheet</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>    
     <!--
@@ -132,6 +135,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype"></Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>  
   <!--
@@ -146,6 +150,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">World average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   <!--
@@ -160,6 +165,7 @@
         <Drill name="type">EU Tube and Sheet</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>     
     <!--
@@ -175,6 +181,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype"></Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>    
   <!--
@@ -189,6 +196,7 @@
         <Drill name="type">Galvanised coil (sheet)</Drill>
         <Drill name="subtype">World average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>      
     <!--
@@ -205,6 +213,7 @@
         <Drill name="material">Glass</Drill>
         <Drill name="type">Primary Glass</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>    
     <!--
@@ -276,6 +285,7 @@
         <Drill name="material">Plastics</Drill>
         <Drill name="type">Low Density Polyethylene Resin</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   <!--
@@ -310,6 +320,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype"></Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>                     
  <Material>
@@ -321,6 +332,7 @@
         <Drill name="type">ABS</Drill>
         <Drill name="subtype"></Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>                 
  <Material>
@@ -332,6 +344,7 @@
         <Drill name="type">"General polyethylene</Drill>
         <Drill name="subtype"></Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>     
     <!--
@@ -363,6 +376,7 @@
         <Drill name="type">"Polycarbonate</Drill>
         <Drill name="subtype"></Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>         
   <Material>
@@ -374,6 +388,7 @@
         <Drill name="type">Polypropylene</Drill>
         <Drill name="subtype">Injection Moulding</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   <Material>
@@ -399,6 +414,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">UK weighted average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>   
    <!--1:PPS Plastic
@@ -414,6 +430,7 @@
         <Drill name="type">PVC</Drill>
         <Drill name="subtype">Pipe</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>      
   <Material>
@@ -425,6 +442,7 @@
         <Drill name="type">UPVC film</Drill>
         <Drill name="subtype"></Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>    
     <!--
@@ -455,6 +473,7 @@
         <Drill name="type">Mastic sealant</Drill>
         <Drill name="subtype">Mean</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material> 
 <!--
@@ -469,6 +488,7 @@
         <Drill name="type"></Drill>
         <Drill name="subtype"></Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>    
     <!--
@@ -488,6 +508,7 @@
         <Drill name="material">Titanium</Drill>
         <Drill name="type">Recycled</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   <!--
@@ -505,6 +526,7 @@
       <Drills>
         <Drill name="type">Sawn hardwood</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   <Material>
@@ -514,6 +536,7 @@
       <Drills>
         <Drill name="type">Sawn hardwood</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   <Material>
@@ -523,6 +546,7 @@
       <Drills>
         <Drill name="type">Sawn hardwood</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   <Material>
@@ -532,8 +556,10 @@
       <Drills>
         <Drill name="type">Sawn hardwood</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
+  
   <Material>
     <MaterialName>1:Wood (Walnut)</MaterialName>
     <AMEE>
@@ -541,6 +567,7 @@
       <Drills>
         <Drill name="type">Sawn hardwood</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
 
@@ -554,6 +581,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
 
@@ -566,6 +594,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
 
@@ -578,6 +607,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   
@@ -590,6 +620,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
 
@@ -602,6 +633,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   
@@ -614,6 +646,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
 
@@ -626,6 +659,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
 
@@ -638,6 +672,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
 
@@ -650,6 +685,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   
@@ -674,6 +710,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   
@@ -686,6 +723,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   
@@ -698,6 +736,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   
@@ -710,6 +749,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   
@@ -722,6 +762,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   
@@ -734,6 +775,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   <Material>
@@ -745,6 +787,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   <Material>
@@ -756,6 +799,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   
@@ -780,6 +824,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   
@@ -792,6 +837,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   
@@ -816,6 +862,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   
@@ -828,6 +875,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   
@@ -862,6 +910,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
 </Materials>
