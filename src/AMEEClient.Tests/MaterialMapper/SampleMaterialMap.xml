@@ -20,6 +20,7 @@
         <Drill name="type">EU Tube and Sheet</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>894.0</Density>
     </AMEE>
   </Material>
 </Materials>

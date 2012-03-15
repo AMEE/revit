@@ -270,6 +270,7 @@
         <Drill name="type">Polystyrene</Drill>
         <Drill name="subtype">High impact</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   <!--
@@ -712,6 +713,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
 
@@ -826,6 +828,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   

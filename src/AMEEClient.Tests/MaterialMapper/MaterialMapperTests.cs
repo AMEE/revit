@@ -18,11 +18,12 @@ namespace AMEEClient.Tests.MaterialMapper
         }
 
         [Test]
-        public void LoadsMaterialsFromJsonMappingFile()
+        public void LoadsMaterialsFromMappingFile()
         {
             var mapper = new AMEEClient.MaterialMapper.MaterialMapper(@"MaterialMapper\SampleMaterialMap.xml", _ameeClient);
 
             Assert.AreEqual("1:Copper", mapper.GetMaterialDataItem("1:Copper").MaterialName);
+            Assert.AreEqual(894d, mapper.GetMaterialDataItem("1:Copper").DensityKgPerM3);
         }
 
         [Test, Category("CallsAMEEConnect")]
@@ -48,7 +49,7 @@ namespace AMEEClient.Tests.MaterialMapper
 
             var material = mapper.GetMaterialDataItem("1:Copper");
             var co2eFor1Kg = material.CalculateCO2eByMass(1);
-            Assert.AreEqual(co2eFor1Kg*material.Density, material.CalculateCO2eByVolume(1));
+            Assert.AreEqual(co2eFor1Kg*material.DensityKgPerM3, material.CalculateCO2eByVolume(1));
         }
 
         [Test, Explicit("Should only run this manually"), Category("CallsAMEEConnect")]

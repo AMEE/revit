@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Analysis;
@@ -37,36 +38,45 @@ namespace AMEE_in_Revit.Addin.Visualizations
 
             var collector = new FilteredElementCollector(doc, view.Id);
             ICollection<Element> elements = collector.WherePasses(Settings.CreateFilterForElementsWithCO2eParameter()).WhereElementIsNotElementType().ToElements();
-            
+
+            int count = 0;
             foreach (var element in elements)
             {
-                double CO2eForElement = 0;
-                if (element.ParametersMap.Contains("CO2e"))
+                if (count++ > 200) continue;
+                Debug.WriteLine(string.Format("Adding CO2e Analysis for element: {0}", element.Name));
+                try
                 {
-                    CO2eForElement = element.ParametersMap.get_Item("CO2e").AsDouble();
+                    double CO2eForElement = 0;
+                    if (element.ParametersMap.Contains("CO2e"))
+                    {
+                        CO2eForElement = element.ParametersMap.get_Item("CO2e").AsDouble();
+                    }
+
+                    foreach (Face face in GetFaces(element))
+                    {
+                        var idx = sfm.AddSpatialFieldPrimitive(face.Reference);
+
+                        IList<UV> uvPts = new List<UV>();
+                        IList<ValueAtPoint> valList = new List<ValueAtPoint>();
+                        var bb = face.GetBoundingBox();
+                        AddMeasurement(CO2eForElement, bb.Min.U, bb.Min.V, uvPts, valList);
+                        AddMeasurement(CO2eForElement, bb.Min.U, bb.Max.V, uvPts, valList);
+                        AddMeasurement(CO2eForElement, bb.Max.U, bb.Max.V, uvPts, valList);
+                        AddMeasurement(CO2eForElement, bb.Max.U, bb.Min.V, uvPts, valList);
+
+                        var pnts = new FieldDomainPointsByUV(uvPts);
+                        var vals = new FieldValues(valList);
+
+                        var resultSchema1 = new AnalysisResultSchema("CO2e schema", "AMEE CO2e schema");
+
+                        sfm.UpdateSpatialFieldPrimitive(idx, pnts, vals, GetFirstRegisteredResult(sfm, resultSchema1));
+                    }
                 }
-                
-                foreach (Face face in GetFaces(element))
+                catch (Exception e)
                 {
-                    var idx = sfm.AddSpatialFieldPrimitive(face.Reference);
-
-                    IList<UV> uvPts = new List<UV>();
-                    IList<ValueAtPoint> valList = new List<ValueAtPoint>();
-                    var bb = face.GetBoundingBox();
-                    AddMeasurement(CO2eForElement, bb.Min.U, bb.Min.V, uvPts, valList);
-                    AddMeasurement(CO2eForElement, bb.Min.U, bb.Max.V, uvPts, valList);
-                    AddMeasurement(CO2eForElement, bb.Max.U, bb.Max.V, uvPts, valList);
-                    AddMeasurement(CO2eForElement, bb.Max.U, bb.Min.V, uvPts, valList);
-
-                    var pnts = new FieldDomainPointsByUV(uvPts);
-                    var vals = new FieldValues(valList);
-
-                    var resultSchema1 = new AnalysisResultSchema("CO2e schema", "AMEE CO2e schema");
-
-                    sfm.UpdateSpatialFieldPrimitive(idx, pnts, vals, GetFirstRegisteredResult(sfm, resultSchema1));
+                    Debug.WriteLine(e.Message);
                 }
             }
-            
         }
 
         // Add the CO2e measuement for this point
@@ -124,7 +134,12 @@ namespace AMEE_in_Revit.Addin.Visualizations
         public static void CreateAndRegister(UIApplication uiApp, View view)
         {
             var updater = new CO2eFieldUpdater(uiApp.ActiveAddInId, view.Id);
-            if (!UpdaterRegistry.IsUpdaterRegistered(updater.GetUpdaterId())) UpdaterRegistry.RegisterUpdater(updater);
+            
+            if (UpdaterRegistry.IsUpdaterRegistered(updater.GetUpdaterId()))
+            {
+                UpdaterRegistry.UnregisterUpdater(updater.GetUpdaterId());
+            }
+            UpdaterRegistry.RegisterUpdater(updater);
 
             var filter = Settings.CreateFilterForElementsWithCO2eParameter();
 

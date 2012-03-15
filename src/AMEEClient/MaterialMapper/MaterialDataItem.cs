@@ -9,20 +9,22 @@ namespace AMEEClient.MaterialMapper
     public class MaterialDataItem
     {
         private readonly Client _ameeClient;
+        public string MaterialName { get; private set; }
+        public double DensityKgPerM3 { get; private set; }
+        public string Path { get; private set; }
+        public List<List<string>> Drills { get; private set; }
 
-        public MaterialDataItem(Client ameeClient, string materialName, string path, List<List<string>> drills)
+        private string _uid;
+
+        public MaterialDataItem(Client ameeClient, string materialName, double densityKgPerM3, string path, List<List<string>> drills)
         {
             _ameeClient = ameeClient;
             MaterialName = materialName;
             Path = path;
             Drills = drills;
+            DensityKgPerM3 = densityKgPerM3;
         }
 
-        public string MaterialName { get; private set; }
-        public string Path { get; private set; }
-        public List<List<string>> Drills { get; private set; }
-
-        private string _uid;
         public string UID
         {
             get
@@ -36,14 +38,7 @@ namespace AMEEClient.MaterialMapper
             }
         }
 
-        public double DensityKgPerM3
-        {
-            get
-            {
-                //TODO - where can we get the actual density from?
-                return 2;
-            }
-        }
+       
 
         public string DiscoverLink()
         {

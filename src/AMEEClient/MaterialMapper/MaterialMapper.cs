@@ -41,13 +41,15 @@ namespace AMEEClient.MaterialMapper
                 foreach (XmlNode material in materials)
                 {
                     var materialName = material.SelectNodes("MaterialName").Item(0).InnerText;
+                    var densityKgPerM3 = Convert.ToDouble(material.SelectNodes("AMEE/Density").Item(0).InnerText);
                     var materialDrillDown = new List<List<string>>();
                     var drills = material.SelectNodes("AMEE/Drills/Drill");
                     foreach (XmlNode drill in drills)
                     {
                         materialDrillDown.Add(new List<string> {drill.Attributes["name"].Value, drill.InnerText});
                     }
-                    var materialDataItem = new MaterialDataItem(_ameeClient, materialName, material.SelectNodes("AMEE/Path").Item(0).InnerText, materialDrillDown);
+                    var path = material.SelectNodes("AMEE/Path").Item(0).InnerText;
+                    var materialDataItem = new MaterialDataItem(_ameeClient, materialName, densityKgPerM3, path, materialDrillDown);
 
                     _materialMap.Add(materialName, materialDataItem);
                 }
