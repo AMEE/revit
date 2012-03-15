@@ -29,6 +29,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>   
   <Material>
@@ -40,6 +41,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>   
   <!--  
@@ -55,6 +57,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material> 
   <Material>
@@ -66,6 +69,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material> 
   <Material>
@@ -92,6 +96,7 @@
         <Drill name="type">Engineering</Drill>
         <Drill name="subtype">Recycled</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>  
   <!--
@@ -106,6 +111,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype"></Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>      
     <!--
@@ -229,6 +235,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype"></Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>   
   <Material>
@@ -240,6 +247,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype"></Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>    
   <Material>
@@ -250,6 +258,7 @@
         <Drill name="material">Plastics</Drill>
         <Drill name="type">High Density Polyethylene Resin</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   <Material>
@@ -275,6 +284,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   <Material>
@@ -304,6 +314,7 @@
         <Drill name="type">"Nylon (Polyamide)</Drill>
         <Drill name="subtype">6,6 Polymer</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>     
     <!--
@@ -365,6 +376,7 @@
         <Drill name="type">"Polycarbonate</Drill>
         <Drill name="subtype"></Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>         
  <Material>
@@ -400,6 +412,7 @@
         <Drill name="type">Polystyrene</Drill>
         <Drill name="subtype">General purpose</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   <!--
@@ -457,6 +470,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype"></Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>     
     <!--
@@ -850,6 +864,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
 
@@ -888,6 +903,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   <Material>
@@ -899,6 +915,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
+      <Density>1.0</Density>
     </AMEE>
   </Material>
   <Material>
