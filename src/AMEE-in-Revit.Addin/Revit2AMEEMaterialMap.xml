@@ -592,9 +592,9 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
+        <Drill name="material">Bricks</Drill>
         <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="subtype">Common Brick</Drill>
       </Drills>
       <Density>1350.0</Density>
     </AMEE>
@@ -605,11 +605,11 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
+        <Drill name="material">Cement</Drill>
         <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="subtype">UK weighted average</Drill>
       </Drills>
-      <Density>1900.0</Density>
+      <Density>1860.0</Density>
     </AMEE>
   </Material>
 
@@ -618,11 +618,11 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
+        <Drill name="material">Cement</Drill>
         <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="subtype">UK weighted average</Drill>
       </Drills>
-      <Density>1050.0</Density>
+      <Density>1860.0</Density>
     </AMEE>
   </Material>
   
@@ -631,11 +631,11 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
+        <Drill name="material">Cement</Drill>
         <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="subtype">UK weighted average</Drill>
       </Drills>
-      <Density>1050.0</Density>
+      <Density>1860.0</Density>
     </AMEE>
   </Material>
 
@@ -657,9 +657,8 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
-        <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="material">Plaster</Drill>
+        <Drill name="type">Plasterboard</Drill>
       </Drills>
       <Density>950.0</Density>
     </AMEE>
@@ -683,11 +682,11 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
-        <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="material">Insulation</Drill>
+        <Drill name="type">General Insulation</Drill>
+        
       </Drills>
-      <Density>1.0</Density>
+      <Density>45.0</Density>
     </AMEE>
   </Material>
 
@@ -696,11 +695,11 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
-        <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="material">Insulation</Drill>
+        <Drill name="type">General Insulation</Drill>
+        
       </Drills>
-      <Density>1.0</Density>
+      <Density>45.0</Density>
     </AMEE>
   </Material>
   
@@ -709,11 +708,11 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
-        <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="material">Insulation</Drill>
+        <Drill name="type">General Insulation</Drill>
+  
       </Drills>
-      <Density>1.0</Density>
+      <Density>45.0</Density>
     </AMEE>
   </Material>
 
@@ -722,9 +721,9 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
+        <Drill name="material">Carpet</Drill>
         <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+
       </Drills>
       <Density>160.0</Density>
     </AMEE>
@@ -735,11 +734,11 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
-        <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">PVC</Drill>
+        <Drill name="subtype">General</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>100.0</Density>
     </AMEE>
   </Material>
   
@@ -748,11 +747,11 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
-        <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">PVC</Drill>
+        <Drill name="subtype">General</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>100.0</Density>
     </AMEE>
   </Material>
   
@@ -761,11 +760,11 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
+        <Drill name="material">Rubber</Drill>
         <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        
       </Drills>
-      <Density>1.0</Density>
+      <Density>1500.0</Density>
     </AMEE>
   </Material>
   
@@ -774,9 +773,9 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
-        <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="material">Cement</Drill>
+        <Drill name="type">Fibre Cement Panels</Drill>
+        <Drill name="subtype">Coated</Drill>
       </Drills>
       <Density>500.0</Density>
     </AMEE>
@@ -799,11 +798,11 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
+        <Drill name="material">Timber</Drill>
         <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+
       </Drills>
-      <Density>1.0</Density>
+      <Density>480.0</Density>
     </AMEE>
   </Material>
   <Material>
@@ -811,9 +810,9 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
+        <Drill name="material">Paint</Drill>
         <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+    
       </Drills>
       <Density>1.0</Density>
     </AMEE>
@@ -837,11 +836,11 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
-        <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="material">Plastics</Drill>
+        <Drill name="type">Polystyrene</Drill>
+        <Drill name="subtype">General purpose</Drill>
       </Drills>
-      <Density>1120.0</Density>
+      <Density>23.0</Density>
     </AMEE>
   </Material>
   
@@ -850,11 +849,11 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
-        <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="material">Glass</Drill>
+        <Drill name="type">Primary Glass</Drill>
+        <Drill name="subtype"></Drill>
       </Drills>
-      <Density>1950.0</Density>
+      <Density>2579.0</Density>
     </AMEE>
   </Material>
   
@@ -863,9 +862,9 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
-        <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="material">Timber</Drill>
+        <Drill name="type">Sawn hardwood</Drill>
+    
       </Drills>
       <Density>650.0</Density>
     </AMEE>
@@ -876,11 +875,11 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
-        <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="material">Steel</Drill>
+        <Drill name="type">Plate</Drill>
+        <Drill name="subtype">World average</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>7800.0</Density>
     </AMEE>
   </Material>
   
@@ -902,9 +901,9 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
+        <Drill name="material">Paint</Drill>
         <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+    
       </Drills>
       <Density>1.0</Density>
     </AMEE>
@@ -918,7 +917,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>2700.0</Density>
     </AMEE>
   </Material>
   <Material>
@@ -926,9 +925,9 @@
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
-        <Drill name="material">Aluminium</Drill>
-        <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="material">Steel</Drill>
+        <Drill name="type">Plate</Drill>
+        <Drill name="subtype">World average</Drill>
       </Drills>
       <Density>7800.0</Density>
     </AMEE>
