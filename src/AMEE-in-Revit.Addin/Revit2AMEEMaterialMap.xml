@@ -620,7 +620,7 @@
       <Drills>
         <Drill name="material">Aluminium</Drill>
         <Drill name="type">General</Drill>
-        <Drill name="subtype"Average</Drill>
+        <Drill name="subtype">Average</Drill>
       </Drills>
       <Density>1050.0</Density>
     </AMEE>
