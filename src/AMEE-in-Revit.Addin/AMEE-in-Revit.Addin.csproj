@@ -55,6 +55,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -68,12 +69,24 @@
     <Compile Include="AMEE_in_Revit_Initialise.cs" />
     <Compile Include="Commands\AddCO2eParameterCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\LaunchTellAMEECommand.cs" />
     <Compile Include="Commands\RecalculateCO2eCommand.cs" />
     <Compile Include="CO2eParameter\ElementCO2eCalculator.cs" />
     <Compile Include="CO2eParameter\OpenSharedParamFileException.cs" />
     <Compile Include="CO2eParameter\SharedParameterDefinition.cs" />
     <Compile Include="CO2eParameter\SharedParameterManipulator.cs" />
     <Compile Include="CO2eParameter\CO2eFieldUpdater.cs" />
+    <Compile Include="Mockups\TellAMEEForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\TellAMEEForm.Designer.cs">
+      <DependentUpon>TellAMEEForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Visualizations\ViewFinder.cs" />
     <Compile Include="Visualizations\AnalysisDisplayStyles.cs" />
     <Compile Include="Visualizations\CO2eVisualisationCreator.cs" />
@@ -104,9 +117,13 @@
     <Content Include="Icons\search_amee.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Icons\send.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icons\visualize.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Mockups\TellAMEE_mockup.png" />
     <Content Include="Revit2AMEEMaterialMap.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -123,6 +140,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mockups\TellAMEEForm.resx">
+      <DependentUpon>TellAMEEForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

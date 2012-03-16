@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
+using AMEE_in_Revit.Addin.CO2eParameter;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI;
 using log4net;
@@ -33,6 +34,7 @@ namespace AMEE_in_Revit.Addin
 
         public Result OnStartup(UIControlledApplication application)
         {
+            logger.InfoFormat("Initializing AMEE-in-Revit Addin");
             try
             {
                 var panel = application.CreateRibbonPanel(Tab.Analyze, "AMEE");
@@ -40,6 +42,7 @@ namespace AMEE_in_Revit.Addin
                 AddUpdateCO2eVisualization(panel);
                 panel.AddSeparator();
                 AddAMEEConnectButton(panel);
+                AddTellAMEEButton(panel);
 
                 CO2eParameter.CO2eFieldUpdater.CreateAndRegister(application.ActiveAddInId);
 
@@ -71,6 +74,12 @@ namespace AMEE_in_Revit.Addin
             var pushButton = panel.AddItem(new PushButtonData("launchAMEEConnect", "AMEE Connect", AddInPath, "AMEE_in_Revit.Addin.Commands.LaunchAMEEConnectCommand")) as PushButton;
             pushButton.ToolTip = "Say Hello World";
             pushButton.Image = pushButton.LargeImage = new BitmapImage(new Uri(ButtonIconsFolder + @"\search_amee.png"));
+        }
+
+        private void AddTellAMEEButton(RibbonPanel panel)
+        {
+            var pushButton = panel.AddItem(new PushButtonData("launchTellAMEE", "Tell AMEE", AddInPath, "AMEE_in_Revit.Addin.Commands.LaunchTellAMEECommand")) as PushButton;
+            pushButton.Image = pushButton.LargeImage = new BitmapImage(new Uri(ButtonIconsFolder + @"\send.png"));
         }
 
         public Result OnShutdown(UIControlledApplication application)
