@@ -13,7 +13,7 @@ namespace AMEE_in_Revit.Addin
     public class AMEE_in_Revit_Initialise : IExternalApplication
     {
         static string AddInPath = typeof(AMEE_in_Revit_Initialise).Assembly.Location;
-        static string ButtonIconsFolder = Path.GetDirectoryName(AddInPath);
+        static string ButtonIconsFolder = Path.Combine(Path.GetDirectoryName(AddInPath), "Icons");
 
         public Result OnStartup(UIControlledApplication application)
         {
@@ -40,23 +40,20 @@ namespace AMEE_in_Revit.Addin
         private void AddRecalculateCO2eButton(RibbonPanel panel)
         {
             var pushButton = panel.AddItem(new PushButtonData("recalculateCO2e", "Recalculate CO2e\nfor all elements", AddInPath, "AMEE_in_Revit.Addin.Commands.RecalculateCO2eCommand")) as PushButton;
-            // Set the large image shown on button
-            pushButton.LargeImage = new BitmapImage(new Uri(ButtonIconsFolder + @"\AMEE.ico"));
+            pushButton.Image = pushButton.LargeImage = new BitmapImage(new Uri(ButtonIconsFolder + @"\calculate.png"));
         }
 
         private void AddUpdateCO2eVisualization(RibbonPanel panel)
         {
             var pushButton = panel.AddItem(new PushButtonData("updateCO2eVisualization", "Update CO2e\nvisualization", AddInPath, "AMEE_in_Revit.Addin.Commands.UpdateCO2eVisualizationCommand")) as PushButton;
-            // Set the large image shown on button
-            pushButton.LargeImage = new BitmapImage(new Uri(ButtonIconsFolder + @"\AMEE.ico"));
+            pushButton.Image = pushButton.LargeImage = new BitmapImage(new Uri(ButtonIconsFolder + @"\visualize.png"));
         }
 
         private void AddAMEEConnectButton(RibbonPanel panel)
         {
             var pushButton = panel.AddItem(new PushButtonData("launchAMEEConnect", "AMEE Connect", AddInPath, "AMEE_in_Revit.Addin.Commands.LaunchAMEEConnectCommand")) as PushButton;
             pushButton.ToolTip = "Say Hello World";
-            // Set the large image shown on button
-            pushButton.LargeImage = new BitmapImage(new Uri(ButtonIconsFolder+ @"\AMEE.ico"));
+            pushButton.Image = pushButton.LargeImage = new BitmapImage(new Uri(ButtonIconsFolder + @"\search_amee.png"));
         }
 
         public Result OnShutdown(UIControlledApplication application)
