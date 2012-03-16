@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
 using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 
-namespace AMEE_in_Revit.Addin.SharedParameters
+namespace AMEE_in_Revit.Addin.CO2eParameter
 {
     public class SharedParameterManipulator
     {

@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using AMEE_in_Revit.Addin.SharedParameters;
+using System.Reflection;
+using AMEE_in_Revit.Addin.CO2eParameter;
+using AMEEClient;
+using AMEEClient.MaterialMapper;
 using Autodesk.Revit.DB;
 
 namespace AMEE_in_Revit.Addin
@@ -52,6 +55,19 @@ namespace AMEE_in_Revit.Addin
                 .Cast<ElementFilter>()
                 .ToList();
             return new LogicalOrFilter(filterList);
+        }
+
+        private static ElementCO2eCalculator _calculator;
+        private static string _mapFilePath =  Path.Combine(Path.GetDirectoryName(typeof(Settings).Assembly.CodeBase), @"Revit2AMEEMaterialMap.xml");
+
+        public static ElementCO2eCalculator GetCO2eCalculator()
+        {
+            if (_calculator==null)
+            {
+                var ameeClient = new Client(new Uri(AmeeUrl), AmeeUserName, AmeePassword);
+                _calculator = new ElementCO2eCalculator(new MaterialMapper(_mapFilePath, ameeClient));
+            }
+            return _calculator;
         }
     }
 }

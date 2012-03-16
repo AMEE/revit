@@ -4,58 +4,12 @@ using System.Diagnostics;
 using System.Linq;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Analysis;
-using Autodesk.Revit.UI;
 
 namespace AMEE_in_Revit.Addin.Visualizations
 {
-    public class CO2eFieldUpdater : IUpdater
+    public class CO2eVisualisationCreator
     {
-        private static Dictionary<int, List<int>> SpatialFieldPrimitiveToElementMap = new Dictionary<int, List<int>>();
-        AddInId addinID;
-        UpdaterId updaterID;
-        ElementId _viewIdId;
-
-        public string GetAdditionalInformation() { return "Visualize the CO2e values of elements"; }
-        public ChangePriority GetChangePriority() { return ChangePriority.FloorsRoofsStructuralWalls; }
-        public UpdaterId GetUpdaterId() { return updaterID; }
-        public string GetUpdaterName() { return "AMEE CO2e visualizer"; }
-
-        public CO2eFieldUpdater(AddInId id, ElementId viewId)
-        {
-            addinID = id;
-            _viewIdId = viewId;
-            updaterID = new UpdaterId(addinID, new Guid("010275A1-6560-48DA-8F60-71472270A984"));
-        }
-
-        public void Execute(UpdaterData data)
-        {
-            var doc = data.GetDocument();
-
-            var view = doc.get_Element(_viewIdId) as View;
-
-            var sfm = SpatialFieldManager.GetSpatialFieldManager(view);
-            if (sfm == null) sfm = SpatialFieldManager.CreateSpatialFieldManager(view, 1); // One measurement value for each point
-            sfm.Clear();
-
-            var collector = new FilteredElementCollector(doc, view.Id);
-            ICollection<Element> elements = collector.WherePasses(Settings.CreateFilterForElementsWithCO2eParameter()).WhereElementIsNotElementType().ToElements();
-            foreach (var element in elements)
-            {
-                UpdateCO2eMeasurements(sfm, element);
-            }
-
-//            var elementIds = new List<ElementId>();
-//            elementIds.AddRange(data.GetAddedElementIds());
-//            elementIds.AddRange(data.GetModifiedElementIds());
-//
-//            foreach (var elementId in elementIds)
-//            {
-//                UpdateCO2eMeasurements(sfm, doc.get_Element(elementId));
-//            }
-
-        }
-
-        public static void UpdateCO2eMeasurements(SpatialFieldManager sfm, Element element)
+        public static void UpdateCO2eVisualization(SpatialFieldManager sfm, Element element)
         {
             try
             {
@@ -66,20 +20,9 @@ namespace AMEE_in_Revit.Addin.Visualizations
                     CO2eForElement = element.ParametersMap.get_Item("CO2e").AsDouble();
                 }
 
-                if (!SpatialFieldPrimitiveToElementMap.ContainsKey(element.Id.IntegerValue))
-                {
-                    SpatialFieldPrimitiveToElementMap.Add(element.Id.IntegerValue, new List<int>());
-                }
-                var spatialFieldPrimitives = SpatialFieldPrimitiveToElementMap[element.Id.IntegerValue];
                 int count = 0;
                 foreach (Face face in GetFaces(element))
                 {
-                    
-//                    if (count + 1 > spatialFieldPrimitives.Count)
-//                    {
-//                        SpatialFieldPrimitiveToElementMap[element.Id.IntegerValue].Add(sfm.AddSpatialFieldPrimitive(face.Reference)); 
-//                    }
-//                    var idx = SpatialFieldPrimitiveToElementMap[element.Id.IntegerValue][count];
                     var idx = sfm.AddSpatialFieldPrimitive(face.Reference);
 
                     IList<UV> uvPts = new List<UV>();
@@ -157,23 +100,6 @@ namespace AMEE_in_Revit.Addin.Visualizations
                 }
             }
             return faceArray;
-        }
-
-        public static void CreateAndRegister(UIApplication uiApp, View view)
-        {
-            var updater = new CO2eFieldUpdater(uiApp.ActiveAddInId, view.Id);
-            
-            if (UpdaterRegistry.IsUpdaterRegistered(updater.GetUpdaterId()))
-            {
-                UpdaterRegistry.UnregisterUpdater(updater.GetUpdaterId());
-            }
-            UpdaterRegistry.RegisterUpdater(updater);
-
-            var filter = Settings.CreateFilterForElementsWithCO2eParameter();
-
-            UpdaterRegistry.AddTrigger(updater.GetUpdaterId(), filter, Element.GetChangeTypeGeometry());
-            UpdaterRegistry.AddTrigger(updater.GetUpdaterId(), filter, Element.GetChangeTypeElementDeletion());
-
         }
     }
 }

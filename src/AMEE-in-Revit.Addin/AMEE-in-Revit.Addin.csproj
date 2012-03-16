@@ -62,22 +62,21 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AMEEPanel.cs" />
-    <Compile Include="AttachAMEEVisualizations.cs" />
+    <Compile Include="AMEE_in_Revit_Initialise.cs" />
     <Compile Include="Commands\AddCO2eParameterCommand.cs" />
     <Compile Include="Commands\RecalculateCO2eCommand.cs" />
-    <Compile Include="ElementCO2eCalculator.cs" />
-    <Compile Include="SharedParameters\OpenSharedParamFileException.cs" />
-    <Compile Include="SharedParameters\SharedParameterDefinition.cs" />
-    <Compile Include="SharedParameters\SharedParameterManipulator.cs" />
+    <Compile Include="CO2eParameter\ElementCO2eCalculator.cs" />
+    <Compile Include="CO2eParameter\OpenSharedParamFileException.cs" />
+    <Compile Include="CO2eParameter\SharedParameterDefinition.cs" />
+    <Compile Include="CO2eParameter\SharedParameterManipulator.cs" />
+    <Compile Include="CO2eParameter\CO2eFieldUpdater.cs" />
     <Compile Include="Visualizations\ViewFinder.cs" />
     <Compile Include="Visualizations\AnalysisDisplayStyles.cs" />
-    <Compile Include="Visualizations\CO2eFieldUpdater.cs" />
+    <Compile Include="Visualizations\CO2eVisualisationCreator.cs" />
     <Compile Include="Commands\UpdateCO2eVisualizationCommand.cs" />
     <Compile Include="Commands\LaunchAMEEConnectCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="Commands\SimpleExternalCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AMEE-in-Revit.addin">

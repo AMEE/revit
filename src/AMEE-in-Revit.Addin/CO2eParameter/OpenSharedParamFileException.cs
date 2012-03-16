@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AMEE_in_Revit.Addin.SharedParameters
+namespace AMEE_in_Revit.Addin.CO2eParameter
 {
     public class OpenSharedParamFileException : Exception
     {

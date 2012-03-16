@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
-using AMEE_in_Revit.Addin.SharedParameters;
 using AMEEClient;
 using AMEEClient.MaterialMapper;
 using Autodesk.Revit.Attributes;
@@ -22,15 +21,12 @@ namespace AMEE_in_Revit.Addin.Commands
             var sw = new Stopwatch();
             sw.Start();
 
-            var ameeClient = new Client(new Uri(Settings.AmeeUrl), Settings.AmeeUserName, Settings.AmeePassword);
-            var calculator = new ElementCO2eCalculator(new MaterialMapper(Path.Combine(Path.GetDirectoryName(GetType().Assembly.CodeBase),@"Revit2AMEEMaterialMap.xml"), ameeClient));
-
             var collector = new FilteredElementCollector(commandData.Application.ActiveUIDocument.Document);
             ICollection<Element> ameeElements = collector.WherePasses(Settings.CreateFilterForElementsWithCO2eParameter()).WhereElementIsNotElementType().ToElements();
 
             var transaction = new Transaction(commandData.Application.ActiveUIDocument.Document, "RecalculateCO2eCommand");
             transaction.Start();
-            calculator.UpdateElementCO2eParameters(ameeElements);
+            Settings.GetCO2eCalculator().UpdateElementCO2eParameters(ameeElements);
             transaction.Commit();
 
             sw.Stop();

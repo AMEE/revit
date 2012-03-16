@@ -588,7 +588,7 @@
 
   <!-- Materials in rac_advanced_sample_project.rvt listed below: -->
   <Material>
-    <MaterialName>Masonry - Brick</MaterialName>
+    <MaterialName>414:Masonry - Brick</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>
@@ -679,7 +679,7 @@
   </Material>
 
   <Material>
-    <MaterialName>Insulation / Thermal Barriers - Batt insulation</MaterialName>
+    <MaterialName>552:Insulation / Thermal Barriers - Batt insulation</MaterialName>
     <AMEE>
       <Path>/embodied/ice/v2/mass</Path>
       <Drills>

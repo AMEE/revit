@@ -40,10 +40,10 @@ namespace AMEE_in_Revit.Addin.Commands
             foreach (var element in co2eElements)
             {
                 if (count++ > 200) continue;
-                CO2eFieldUpdater.UpdateCO2eMeasurements(sfm, element);
+                CO2eVisualisationCreator.UpdateCO2eVisualization(sfm, element);
             }
             sw.Stop();
-            MessageBox.Show(string.Format("Update all CO2e Measurements in {0}", sw.Elapsed));
+            MessageBox.Show(string.Format("Updated all CO2e Measurements in {0}", sw.Elapsed));
 
            // CO2eFieldUpdater.CreateAndRegister(uiApp, view);
 
