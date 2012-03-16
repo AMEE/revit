@@ -13,7 +13,7 @@ namespace AMEE_in_Revit.Addin.Commands
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            SetStatusText("Recalculating CO2e for each element...");
+            SetStatusText("Recalculating CO2e for each elemeBnt...");
             var sw = new Stopwatch();
             sw.Start();
 
@@ -27,6 +27,8 @@ namespace AMEE_in_Revit.Addin.Commands
 
             sw.Stop();
             SetStatusText("Recalculated all COe2 values in {0}", sw.Elapsed);
+            logger.InfoFormat("Recalculated all COe2 values in {0}", sw.Elapsed);
+
             return Result.Succeeded;
         }
     }

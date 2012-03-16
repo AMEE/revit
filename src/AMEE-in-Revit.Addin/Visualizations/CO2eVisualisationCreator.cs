@@ -4,16 +4,18 @@ using System.Diagnostics;
 using System.Linq;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Analysis;
+using log4net;
 
 namespace AMEE_in_Revit.Addin.Visualizations
 {
     public class CO2eVisualisationCreator
     {
+        private static readonly ILog logger = LogManager.GetLogger(typeof(CO2eVisualisationCreator));
         public static void UpdateCO2eVisualization(SpatialFieldManager sfm, Element element)
         {
             try
             {
-                Debug.WriteLine(string.Format("Adding CO2e Analysis for element: {0}", element.Name));
+                logger.InfoFormat("Adding CO2e Analysis for element: {0}", element.Name);
                 double CO2eForElement = 0;
                 if (element.ParametersMap.Contains("CO2e"))
                 {
@@ -33,7 +35,7 @@ namespace AMEE_in_Revit.Addin.Visualizations
                     AddMeasurement(CO2eForElement, bb.Max.U, bb.Max.V, uvPts, valList);
                     AddMeasurement(CO2eForElement, bb.Max.U, bb.Min.V, uvPts, valList);
 
-                    Debug.WriteLine(string.Format("elementId: {0}, face: {1}, spf idx: {2}, bounding box: {3},{4},{5},{6}", element.Id.IntegerValue, count, idx, bb.Min.U, bb.Min.V, bb.Max.U, bb.Max.V));
+                    logger.DebugFormat("elementId: {0}, face: {1}, spf idx: {2}, bounding box: {3},{4},{5},{6}", element.Id.IntegerValue, count, idx, bb.Min.U, bb.Min.V, bb.Max.U, bb.Max.V);
 
                     var pnts = new FieldDomainPointsByUV(uvPts);
                     var vals = new FieldValues(valList);
@@ -46,7 +48,7 @@ namespace AMEE_in_Revit.Addin.Visualizations
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                logger.Error(e);
             }
         }
 

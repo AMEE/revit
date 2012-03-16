@@ -1,11 +1,14 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using log4net;
 
 namespace AMEE_in_Revit.Addin.Commands
 {
     public class CommandBase
     {
+        protected static readonly ILog logger = LogManager.GetLogger(typeof(CommandBase));
+
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         private static extern int SetWindowText(IntPtr hWnd, string lpString);
 

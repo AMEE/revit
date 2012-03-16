@@ -42,7 +42,7 @@ namespace AMEE_in_Revit.Addin.Commands
             {
                 if (count++ > 200)
                 {
-                    SetStatusText("Skipping CO2e visualisation update for element {0} since we have already updated more than 200", element.Name);
+                    logger.InfoFormat("Skipping CO2e visualisation update for element {0} since we have already updated more than 200", element.Name);
                     continue;
                 }
                 SetStatusText("Updating CO2e visualisation for element {0}...", element.Name);
@@ -51,6 +51,7 @@ namespace AMEE_in_Revit.Addin.Commands
 
             sw.Stop();
             SetStatusText("Updated all CO2e visualisations in {0}", sw.Elapsed);
+            logger.InfoFormat("Updated all CO2e visualisations in {0}", sw.Elapsed);
 
             return Result.Succeeded;
         }

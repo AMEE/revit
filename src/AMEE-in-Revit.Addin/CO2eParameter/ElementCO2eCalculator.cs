@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using AMEEClient.MaterialMapper;
 using Autodesk.Revit.DB;
+using log4net;
 
 namespace AMEE_in_Revit.Addin.CO2eParameter
 {
     public class ElementCO2eCalculator
     {
+        private static readonly ILog logger = LogManager.GetLogger(typeof(ElementCO2eCalculator));
         private MaterialMapper _materialMapper;
 
         public ElementCO2eCalculator(MaterialMapper materialMapper)
@@ -40,8 +42,8 @@ namespace AMEE_in_Revit.Addin.CO2eParameter
                 }
                 catch (Exception e)
                 {
-                    Debug.WriteLine(string.Format("Unable to add CO2e value for element {0} -> material: {1} because {2}", 
-                        element.Name, materialKey, e));
+                    logger.DebugFormat("Unable to add CO2e value for element {0} -> material: {1} because {2}",
+                        element.Name, materialKey, e);
                     element.ParametersMap.get_Item("CO2e").Set(0);
                 }
             }

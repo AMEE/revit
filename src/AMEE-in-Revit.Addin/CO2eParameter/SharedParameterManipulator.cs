@@ -3,6 +3,7 @@ using System.IO;
 using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using log4net;
 
 namespace AMEE_in_Revit.Addin.CO2eParameter
 {
@@ -11,6 +12,7 @@ namespace AMEE_in_Revit.Addin.CO2eParameter
         private readonly Application _dbApplication;
         private readonly UIApplication _application;
         private readonly Document _activeUIDocument;
+        private static readonly ILog logger = LogManager.GetLogger(typeof(SharedParameterManipulator));
 
         public SharedParameterManipulator(UIApplication application)
         {
@@ -44,7 +46,7 @@ namespace AMEE_in_Revit.Addin.CO2eParameter
                 var instanceBinding = _dbApplication.Create.NewInstanceBinding(categorySet);
                 _activeUIDocument.ParameterBindings.Insert(definition, instanceBinding, BuiltInParameterGroup.PG_ENERGY_ANALYSIS);
 
-                Debug.WriteLine("Added custom shared param {0} to category {1}", definition.Name, category.Name);
+                logger.DebugFormat("Added custom shared param {0} to category {1}", definition.Name, category.Name);
             }
         }
 

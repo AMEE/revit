@@ -8,6 +8,7 @@ using AMEE_in_Revit.Addin.CO2eParameter;
 using AMEEClient;
 using AMEEClient.MaterialMapper;
 using Autodesk.Revit.DB;
+using log4net;
 
 namespace AMEE_in_Revit.Addin
 {
@@ -16,6 +17,7 @@ namespace AMEE_in_Revit.Addin
         public const string AmeeUrl = "https://stage.amee.com";
         public const string AmeeUserName = "AMEE_in_Revit";
         public const string AmeePassword = "ghmuasqx";
+        private static readonly ILog logger = LogManager.GetLogger(typeof(Settings));
         public static SharedParameterDefinition CO2eParam 
         { 
             get

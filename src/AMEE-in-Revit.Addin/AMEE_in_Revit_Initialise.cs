@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI;
+using log4net;
+using log4net.Config;
 
 namespace AMEE_in_Revit.Addin
 {
@@ -14,6 +16,20 @@ namespace AMEE_in_Revit.Addin
     {
         static string AddInPath = typeof(AMEE_in_Revit_Initialise).Assembly.Location;
         static string ButtonIconsFolder = Path.Combine(Path.GetDirectoryName(AddInPath), "Icons");
+        private static readonly ILog logger = LogManager.GetLogger(typeof(AMEE_in_Revit_Initialise));
+    
+        static AMEE_in_Revit_Initialise()
+        {
+            var logConfig = Path.Combine(Path.GetDirectoryName(typeof(AMEE_in_Revit_Initialise).Assembly.Location), "log4net.config");
+            var configStream = new FileInfo(logConfig);
+            XmlConfigurator.Configure(configStream);
+
+            //Route AMEEClient events to Log4Net
+            CityIndex.ReflectiveLoggingAdapter.LogManager.CreateInnerLogger = (logName, logLevel, showLevel, showDateTime, showLogName, dateTimeFormat) =>
+            {
+                return log4net.LogManager.GetLogger(logName);
+            };
+        }
 
         public Result OnStartup(UIControlledApplication application)
         {
@@ -31,6 +47,7 @@ namespace AMEE_in_Revit.Addin
             }
             catch (Exception ex)
             {
+                logger.Error("Unable to initialize AMEE-in-Revit addin: ", ex);
                 MessageBox.Show("Unable to initialize AMEE-in-Revit addin: " + ex, "AMEE-in-Revit error");
 
                 return Result.Failed;
