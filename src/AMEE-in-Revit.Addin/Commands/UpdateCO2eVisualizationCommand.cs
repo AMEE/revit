@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Windows.Forms;
 using AMEE_in_Revit.Addin.Visualizations;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
@@ -12,13 +11,15 @@ namespace AMEE_in_Revit.Addin.Commands
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
     [Journaling(JournalingMode.UsingCommandData)]
-    public class UpdateCO2eVisualizationCommand : IExternalCommand
+    public class UpdateCO2eVisualizationCommand : CommandBase, IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var uiApp = commandData.Application;
             var doc = uiApp.ActiveUIDocument.Document;
-           
+            
+            SetStatusText("Updating CO2e visualisation...");
+
             var view = new ViewFinder(doc).Get3DViewNamed("CO2e");
             if (view == null)
             {
@@ -39,13 +40,17 @@ namespace AMEE_in_Revit.Addin.Commands
             var count = 0;
             foreach (var element in co2eElements)
             {
-                if (count++ > 200) continue;
+                if (count++ > 200)
+                {
+                    SetStatusText("Skipping CO2e visualisation update for element {0} since we have already updated more than 200", element.Name);
+                    continue;
+                }
+                SetStatusText("Updating CO2e visualisation for element {0}...", element.Name);
                 CO2eVisualisationCreator.UpdateCO2eVisualization(sfm, element);
             }
-            sw.Stop();
-            MessageBox.Show(string.Format("Updated all CO2e Measurements in {0}", sw.Elapsed));
 
-           // CO2eFieldUpdater.CreateAndRegister(uiApp, view);
+            sw.Stop();
+            SetStatusText("Updated all CO2e visualisations in {0}", sw.Elapsed);
 
             return Result.Succeeded;
         }

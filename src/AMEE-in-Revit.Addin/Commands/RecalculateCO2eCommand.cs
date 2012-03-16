@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Windows.Forms;
-using AMEEClient;
-using AMEEClient.MaterialMapper;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
@@ -14,10 +9,11 @@ namespace AMEE_in_Revit.Addin.Commands
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
     [Journaling(JournalingMode.UsingCommandData)]
-    public class RecalculateCO2eCommand : IExternalCommand
+    public class RecalculateCO2eCommand : CommandBase, IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
+            SetStatusText("Recalculating CO2e for each element...");
             var sw = new Stopwatch();
             sw.Start();
 
@@ -30,7 +26,7 @@ namespace AMEE_in_Revit.Addin.Commands
             transaction.Commit();
 
             sw.Stop();
-            MessageBox.Show(string.Format("Recalculated all COe2 values in {0}", sw.Elapsed));
+            SetStatusText("Recalculated all COe2 values in {0}", sw.Elapsed);
             return Result.Succeeded;
         }
     }

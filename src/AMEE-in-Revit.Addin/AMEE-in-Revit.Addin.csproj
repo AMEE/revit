@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="AMEE_in_Revit_Initialise.cs" />
     <Compile Include="Commands\AddCO2eParameterCommand.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\RecalculateCO2eCommand.cs" />
     <Compile Include="CO2eParameter\ElementCO2eCalculator.cs" />
     <Compile Include="CO2eParameter\OpenSharedParamFileException.cs" />
