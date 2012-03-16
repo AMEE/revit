@@ -596,7 +596,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>1350.0</Density>
     </AMEE>
   </Material>
 
@@ -609,7 +609,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>1900.0</Density>
     </AMEE>
   </Material>
 
@@ -620,9 +620,9 @@
       <Drills>
         <Drill name="material">Aluminium</Drill>
         <Drill name="type">General</Drill>
-        <Drill name="subtype">Average</Drill>
+        <Drill name="subtype"Average</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>1050.0</Density>
     </AMEE>
   </Material>
   
@@ -635,7 +635,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>1050.0</Density>
     </AMEE>
   </Material>
 
@@ -648,7 +648,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>1350.0</Density>
     </AMEE>
   </Material>
   
@@ -661,7 +661,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>950.0</Density>
     </AMEE>
   </Material>
 
@@ -726,7 +726,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>160.0</Density>
     </AMEE>
   </Material>
   
@@ -778,7 +778,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>500.0</Density>
     </AMEE>
   </Material>
   
@@ -841,7 +841,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>1120.0</Density>
     </AMEE>
   </Material>
   
@@ -854,7 +854,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>1950.0</Density>
     </AMEE>
   </Material>
   
@@ -867,7 +867,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>650.0</Density>
     </AMEE>
   </Material>
 
@@ -893,7 +893,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>2700.0</Density>
     </AMEE>
   </Material>
   
@@ -930,7 +930,7 @@
         <Drill name="type">General</Drill>
         <Drill name="subtype">Average</Drill>
       </Drills>
-      <Density>1.0</Density>
+      <Density>7800.0</Density>
     </AMEE>
   </Material>
 </Materials>
