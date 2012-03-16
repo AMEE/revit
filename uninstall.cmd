@@ -1,0 +1,1 @@
+del C:\ProgramData\Autodesk\Revit\Addins\2012\AMEE-in-Revit.addin 

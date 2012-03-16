@@ -10,6 +10,7 @@ namespace AMEE_in_Revit.Addin.Visualizations
 {
     public class CO2eFieldUpdater : IUpdater
     {
+        private static Dictionary<int, List<int>> SpatialFieldPrimitiveToElementMap = new Dictionary<int, List<int>>();
         AddInId addinID;
         UpdaterId updaterID;
         ElementId _viewIdId;
@@ -38,62 +39,89 @@ namespace AMEE_in_Revit.Addin.Visualizations
 
             var collector = new FilteredElementCollector(doc, view.Id);
             ICollection<Element> elements = collector.WherePasses(Settings.CreateFilterForElementsWithCO2eParameter()).WhereElementIsNotElementType().ToElements();
-
-            int count = 0;
             foreach (var element in elements)
             {
-                if (count++ > 200) continue;
+                UpdateCO2eMeasurements(sfm, element);
+            }
+
+//            var elementIds = new List<ElementId>();
+//            elementIds.AddRange(data.GetAddedElementIds());
+//            elementIds.AddRange(data.GetModifiedElementIds());
+//
+//            foreach (var elementId in elementIds)
+//            {
+//                UpdateCO2eMeasurements(sfm, doc.get_Element(elementId));
+//            }
+
+        }
+
+        public static void UpdateCO2eMeasurements(SpatialFieldManager sfm, Element element)
+        {
+            try
+            {
                 Debug.WriteLine(string.Format("Adding CO2e Analysis for element: {0}", element.Name));
-                try
+                double CO2eForElement = 0;
+                if (element.ParametersMap.Contains("CO2e"))
                 {
-                    double CO2eForElement = 0;
-                    if (element.ParametersMap.Contains("CO2e"))
-                    {
-                        CO2eForElement = element.ParametersMap.get_Item("CO2e").AsDouble();
-                    }
-
-                    foreach (Face face in GetFaces(element))
-                    {
-                        var idx = sfm.AddSpatialFieldPrimitive(face.Reference);
-
-                        IList<UV> uvPts = new List<UV>();
-                        IList<ValueAtPoint> valList = new List<ValueAtPoint>();
-                        var bb = face.GetBoundingBox();
-                        AddMeasurement(CO2eForElement, bb.Min.U, bb.Min.V, uvPts, valList);
-                        AddMeasurement(CO2eForElement, bb.Min.U, bb.Max.V, uvPts, valList);
-                        AddMeasurement(CO2eForElement, bb.Max.U, bb.Max.V, uvPts, valList);
-                        AddMeasurement(CO2eForElement, bb.Max.U, bb.Min.V, uvPts, valList);
-
-                        var pnts = new FieldDomainPointsByUV(uvPts);
-                        var vals = new FieldValues(valList);
-
-                        var resultSchema1 = new AnalysisResultSchema("CO2e schema", "AMEE CO2e schema");
-
-                        sfm.UpdateSpatialFieldPrimitive(idx, pnts, vals, GetFirstRegisteredResult(sfm, resultSchema1));
-                    }
+                    CO2eForElement = element.ParametersMap.get_Item("CO2e").AsDouble();
                 }
-                catch (Exception e)
+
+                if (!SpatialFieldPrimitiveToElementMap.ContainsKey(element.Id.IntegerValue))
                 {
-                    Debug.WriteLine(e.Message);
+                    SpatialFieldPrimitiveToElementMap.Add(element.Id.IntegerValue, new List<int>());
                 }
+                var spatialFieldPrimitives = SpatialFieldPrimitiveToElementMap[element.Id.IntegerValue];
+                int count = 0;
+                foreach (Face face in GetFaces(element))
+                {
+                    
+//                    if (count + 1 > spatialFieldPrimitives.Count)
+//                    {
+//                        SpatialFieldPrimitiveToElementMap[element.Id.IntegerValue].Add(sfm.AddSpatialFieldPrimitive(face.Reference)); 
+//                    }
+//                    var idx = SpatialFieldPrimitiveToElementMap[element.Id.IntegerValue][count];
+                    var idx = sfm.AddSpatialFieldPrimitive(face.Reference);
+
+                    IList<UV> uvPts = new List<UV>();
+                    IList<ValueAtPoint> valList = new List<ValueAtPoint>();
+                    var bb = face.GetBoundingBox();
+                    AddMeasurement(CO2eForElement, bb.Min.U, bb.Min.V, uvPts, valList);
+                    AddMeasurement(CO2eForElement, bb.Min.U, bb.Max.V, uvPts, valList);
+                    AddMeasurement(CO2eForElement, bb.Max.U, bb.Max.V, uvPts, valList);
+                    AddMeasurement(CO2eForElement, bb.Max.U, bb.Min.V, uvPts, valList);
+
+                    Debug.WriteLine(string.Format("elementId: {0}, face: {1}, spf idx: {2}, bounding box: {3},{4},{5},{6}", element.Id.IntegerValue, count, idx, bb.Min.U, bb.Min.V, bb.Max.U, bb.Max.V));
+
+                    var pnts = new FieldDomainPointsByUV(uvPts);
+                    var vals = new FieldValues(valList);
+
+                    var resultSchema1 = new AnalysisResultSchema("CO2e schema", "AMEE CO2e schema");
+
+                    sfm.UpdateSpatialFieldPrimitive(idx, pnts, vals, GetFirstRegisteredResult(sfm, resultSchema1));
+                    count++;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
             }
         }
 
         // Add the CO2e measuement for this point
-        private void AddMeasurement(double measurement, double u, double v, IList<UV> uvPts, IList<ValueAtPoint> valList)
+        private static void AddMeasurement(double measurement, double u, double v, IList<UV> uvPts, IList<ValueAtPoint> valList)
         {
             uvPts.Add(new UV(u, v));
             valList.Add(new ValueAtPoint(new List<double> { measurement }));
         }
 
-        private int GetFirstRegisteredResult(SpatialFieldManager sfm, AnalysisResultSchema analysisResultSchema)
+        private static int GetFirstRegisteredResult(SpatialFieldManager sfm, AnalysisResultSchema analysisResultSchema)
         {
             IList<int> registeredResults = new List<int>();
             registeredResults = sfm.GetRegisteredResults();
             return registeredResults.Count == 0 ? sfm.RegisterResult(analysisResultSchema) : registeredResults.First();
         }
 
-        private FaceArray GetFaces(Element element)
+        private static FaceArray GetFaces(Element element)
         {
             var faceArray = new FaceArray();
             var options = new Options();
@@ -145,6 +173,7 @@ namespace AMEE_in_Revit.Addin.Visualizations
 
             UpdaterRegistry.AddTrigger(updater.GetUpdaterId(), filter, Element.GetChangeTypeGeometry());
             UpdaterRegistry.AddTrigger(updater.GetUpdaterId(), filter, Element.GetChangeTypeElementDeletion());
+
         }
     }
 }

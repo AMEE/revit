@@ -73,7 +73,7 @@
     <Compile Include="Visualizations\ViewFinder.cs" />
     <Compile Include="Visualizations\AnalysisDisplayStyles.cs" />
     <Compile Include="Visualizations\CO2eFieldUpdater.cs" />
-    <Compile Include="Commands\RunCO2eFieldUpdaterCommand.cs" />
+    <Compile Include="Commands\UpdateCO2eVisualizationCommand.cs" />
     <Compile Include="Commands\LaunchAMEEConnectCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
@@ -88,6 +88,7 @@
     </Content>
     <Content Include="Revit2AMEEMaterialMap.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
