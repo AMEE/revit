@@ -2,6 +2,14 @@
 
 ##Developer machine setup
 
+To build the AMEE-in-Revit addin you will need:
+
+ * Autodesk Revit 2012
+ * Autodesk Revit Addin Manager (recommended)
+ * Visual Studio 2010 C# Express (Visual Studio 2010 Pro+ recommended)
+
+Alterately, Amazon EC2 AMI ami-d1774fa5 contains all the required software to build and test the AMEE-in-Revit addin.
+
 ##Architecture
 
 <img src="http://dl.dropbox.com/u/33609233/AMEE/screenshots/architecture.jpeg">
