@@ -4,7 +4,7 @@
 
 ##Architecture
 
--> embed image
+<img src="http://dl.dropbox.com/u/33609233/AMEE/screenshots/architecture.jpeg">
 
 ###AMEEConnect
 AMEEConnect is a REST based API exposed over HTTP.  
