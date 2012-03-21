@@ -54,6 +54,7 @@ All the logic for calculating the CO2e value for an element is embedded in
 [AMEE_in_Revit.Addin.CO2eParameter.ElementCO2eCalculator](https://github.com/AMEE/revit/blob/a5d4ab34bbcb809dd7075c6324c4623aae43730d/src/AMEE-in-Revit.Addin/CO2eParameter/ElementCO2eCalculator.cs).
 
 In summary, the algorithm used is:
+
 1.  Query the Revit API for the list of materials in the element.
 1.  Loop through these, and for each one find the volume in m^3 of each material used by the element using 
 the Revit API method ```element.GetMaterialVolume(material)```
