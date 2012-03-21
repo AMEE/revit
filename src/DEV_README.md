@@ -49,6 +49,21 @@ through to red (high).
 focussed Add-in Manager tool.  Typically these perform batch operations, such as calculating the CO2e value for all elements in the model.
 1.  Logging - Log4Net is used to write runtime log files to the debug console & a text based log file (C:\AMEE-in-Revit.Addin.log by default)
 
+###CO2e calculation algorithm
+All the logic for calculating the CO2e value for an element is embedded in 
+[AMEE_in_Revit.Addin.CO2eParameter.ElementCO2eCalculator](https://github.com/AMEE/revit/blob/a5d4ab34bbcb809dd7075c6324c4623aae43730d/src/AMEE-in-Revit.Addin/CO2eParameter/ElementCO2eCalculator.cs).
+
+In summary, the algorithm used is:
+1.  Query the Revit API for the list of materials in the element.
+1.  Loop through these, and for each one find the volume in m^3 of each material used by the element using 
+the Revit API method ```element.GetMaterialVolume(material)```
+1.  Match the Revit material name with the AMEE data item - this is done via a lookup to the 
+[material mapping file](https://github.com/AMEE/revit/blob/master/src/AMEE-in-Revit.Addin/Revit2AMEEMaterialMap.xml)
+1.  Calculate the mass (in kg) of the material by multiplying the material volume by the material 
+density (as defined in the [material mapping file](https://github.com/AMEE/revit/blob/master/src/AMEE-in-Revit.Addin/Revit2AMEEMaterialMap.xml) )
+1.  Submit a CO2e calculation request for said mass of said material to the AMEEConnect API
+1.  Increment the element's total CO2e value, and move on to the next material in the element
+
 ###Further documentation
 
 1.  samples\Revit 2012 SDK contains useful documentation, tools & sample code
