@@ -20,7 +20,7 @@ using Visual C#.
 
 ## USAGE
 
-See the video at <todo> for usage details.
+See the [video for usage details](http://www.youtube.com/watch?v=hku40NQWbsQ) .
 
 ## Development notes
 See [src/DEV_README.md](https://github.com/AMEE/revit/blob/master/src/DEV_README.md)
